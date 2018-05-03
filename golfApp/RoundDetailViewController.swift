@@ -3,9 +3,7 @@
 //  golfApp
 //
 //Name/Author: John Brechon
-//Z-ID: Z1750010
-//CSCI 321/521, Spring 2018
-//Activity: Student iOS Project
+
 
 import UIKit
 

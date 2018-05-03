@@ -15,17 +15,11 @@
 		523FE0472081874300EE0E52 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523FE0462081874300EE0E52 /* HomeViewController.swift */; };
 		523FE0492081878800EE0E52 /* holeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523FE0482081878800EE0E52 /* holeViewController.swift */; };
 		5241A05F208D6735009521C0 /* homeScreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5241A05E208D6734009521C0 /* homeScreen.jpg */; };
-		5241A061208D7933009521C0 /* holeBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5241A060208D7933009521C0 /* holeBackground.jpg */; };
-		5241A069208F7EB7009521C0 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 5241A063208F7EB7009521C0 /* index.html */; };
-		5241A06A208F7EB7009521C0 /* main.css in Resources */ = {isa = PBXBuildFile; fileRef = 5241A065208F7EB7009521C0 /* main.css */; };
-		5241A06B208F7EB7009521C0 /* normalize.css in Resources */ = {isa = PBXBuildFile; fileRef = 5241A066208F7EB7009521C0 /* normalize.css */; };
-		5241A06C208F7EB7009521C0 /* profile_pic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5241A068208F7EB7009521C0 /* profile_pic.jpg */; };
 		5275E40A2083B38B007CA25E /* sycamoreCourse.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5275E4092083B38B007CA25E /* sycamoreCourse.plist */; };
 		5275E40F2083C41F007CA25E /* emeraldHillCourse.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5275E40D2083C41F007CA25E /* emeraldHillCourse.plist */; };
 		5275E4102083C41F007CA25E /* kishwaukeeCourse.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5275E40E2083C41F007CA25E /* kishwaukeeCourse.plist */; };
 		5275E4122083DC58007CA25E /* endRoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5275E4112083DC58007CA25E /* endRoundViewController.swift */; };
 		5275E41420841DFC007CA25E /* AboutAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5275E41320841DFC007CA25E /* AboutAppViewController.swift */; };
-		5275E416208420B4007CA25E /* AboutAuthorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5275E415208420B4007CA25E /* AboutAuthorViewController.swift */; };
 		5275E44420846572007CA25E /* priorRoundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5275E44320846572007CA25E /* priorRoundsViewController.swift */; };
 		5275E44620846E38007CA25E /* RoundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5275E44520846E38007CA25E /* RoundTableViewCell.swift */; };
 		5275E4482084EFC7007CA25E /* RoundDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5275E4472084EFC7007CA25E /* RoundDetailViewController.swift */; };
@@ -42,17 +36,11 @@
 		523FE0462081874300EE0E52 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		523FE0482081878800EE0E52 /* holeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = holeViewController.swift; sourceTree = "<group>"; };
 		5241A05E208D6734009521C0 /* homeScreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = homeScreen.jpg; sourceTree = "<group>"; };
-		5241A060208D7933009521C0 /* holeBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = holeBackground.jpg; sourceTree = "<group>"; };
-		5241A063208F7EB7009521C0 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
-		5241A065208F7EB7009521C0 /* main.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = main.css; sourceTree = "<group>"; };
-		5241A066208F7EB7009521C0 /* normalize.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = normalize.css; sourceTree = "<group>"; };
-		5241A068208F7EB7009521C0 /* profile_pic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = profile_pic.jpg; sourceTree = "<group>"; };
 		5275E4092083B38B007CA25E /* sycamoreCourse.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = sycamoreCourse.plist; sourceTree = "<group>"; };
 		5275E40D2083C41F007CA25E /* emeraldHillCourse.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emeraldHillCourse.plist; sourceTree = "<group>"; };
 		5275E40E2083C41F007CA25E /* kishwaukeeCourse.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = kishwaukeeCourse.plist; sourceTree = "<group>"; };
 		5275E4112083DC58007CA25E /* endRoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = endRoundViewController.swift; sourceTree = "<group>"; };
 		5275E41320841DFC007CA25E /* AboutAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppViewController.swift; sourceTree = "<group>"; };
-		5275E415208420B4007CA25E /* AboutAuthorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAuthorViewController.swift; sourceTree = "<group>"; };
 		5275E44320846572007CA25E /* priorRoundsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = priorRoundsViewController.swift; sourceTree = "<group>"; };
 		5275E44520846E38007CA25E /* RoundTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundTableViewCell.swift; sourceTree = "<group>"; };
 		5275E4472084EFC7007CA25E /* RoundDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundDetailViewController.swift; sourceTree = "<group>"; };
@@ -96,7 +84,6 @@
 				523FE02F20816E6400EE0E52 /* Main.storyboard */,
 				5275E4472084EFC7007CA25E /* RoundDetailViewController.swift */,
 				5275E44320846572007CA25E /* priorRoundsViewController.swift */,
-				5275E415208420B4007CA25E /* AboutAuthorViewController.swift */,
 				5275E41320841DFC007CA25E /* AboutAppViewController.swift */,
 				5275E4112083DC58007CA25E /* endRoundViewController.swift */,
 				523FE03520816E6500EE0E52 /* Assets.xcassets */,
@@ -105,38 +92,9 @@
 				5275E40E2083C41F007CA25E /* kishwaukeeCourse.plist */,
 				523FE03A20816E6500EE0E52 /* Info.plist */,
 				5241A05E208D6734009521C0 /* homeScreen.jpg */,
-				5241A062208F7EB7009521C0 /* html */,
-				5241A060208D7933009521C0 /* holeBackground.jpg */,
 				523FE03220816E6500EE0E52 /* golfApp.xcdatamodeld */,
 			);
 			path = golfApp;
-			sourceTree = "<group>";
-		};
-		5241A062208F7EB7009521C0 /* html */ = {
-			isa = PBXGroup;
-			children = (
-				5241A063208F7EB7009521C0 /* index.html */,
-				5241A064208F7EB7009521C0 /* css */,
-				5241A067208F7EB7009521C0 /* images */,
-			);
-			path = html;
-			sourceTree = "<group>";
-		};
-		5241A064208F7EB7009521C0 /* css */ = {
-			isa = PBXGroup;
-			children = (
-				5241A065208F7EB7009521C0 /* main.css */,
-				5241A066208F7EB7009521C0 /* normalize.css */,
-			);
-			path = css;
-			sourceTree = "<group>";
-		};
-		5241A067208F7EB7009521C0 /* images */ = {
-			isa = PBXGroup;
-			children = (
-				5241A068208F7EB7009521C0 /* profile_pic.jpg */,
-			);
-			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,17 +155,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5241A061208D7933009521C0 /* holeBackground.jpg in Resources */,
 				5275E40F2083C41F007CA25E /* emeraldHillCourse.plist in Resources */,
 				523FE03920816E6500EE0E52 /* LaunchScreen.storyboard in Resources */,
-				5241A06B208F7EB7009521C0 /* normalize.css in Resources */,
-				5241A069208F7EB7009521C0 /* index.html in Resources */,
 				5275E4102083C41F007CA25E /* kishwaukeeCourse.plist in Resources */,
 				5275E40A2083B38B007CA25E /* sycamoreCourse.plist in Resources */,
-				5241A06A208F7EB7009521C0 /* main.css in Resources */,
 				523FE03620816E6500EE0E52 /* Assets.xcassets in Resources */,
 				5241A05F208D6735009521C0 /* homeScreen.jpg in Resources */,
-				5241A06C208F7EB7009521C0 /* profile_pic.jpg in Resources */,
 				523FE03120816E6500EE0E52 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -220,7 +173,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5275E44420846572007CA25E /* priorRoundsViewController.swift in Sources */,
-				5275E416208420B4007CA25E /* AboutAuthorViewController.swift in Sources */,
 				5275E4482084EFC7007CA25E /* RoundDetailViewController.swift in Sources */,
 				5275E44620846E38007CA25E /* RoundTableViewCell.swift in Sources */,
 				523FE03420816E6500EE0E52 /* golfApp.xcdatamodeld in Sources */,

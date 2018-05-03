@@ -3,9 +3,7 @@
 //  golfApp
 //
 //Name/Author: John Brechon
-//Z-ID: Z1750010
-//CSCI 321/521, Spring 2018
-//Activity: Student iOS Project
+
 
 import UIKit
 
@@ -28,7 +26,7 @@ class endRoundViewController: UIViewController {
         super.viewDidLoad()
 
         
-        
+            //Adding the background image to ViewController
         UIGraphicsBeginImageContext(self.view.frame.size)
         UIImage(named: "homeScreen.jpg")?.draw(in: self.view.bounds)
         let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!

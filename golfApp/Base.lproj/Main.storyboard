@@ -1001,24 +1001,12 @@
                                 <rect key="frame" x="16" y="91" width="343" height="443"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">Author: John Brechon
+                                <mutableString key="text">Author: John Brechon
  This iPhone app functions as a golf scorecard. This app is restricted for use on only the three courses listed (Sycamore, Kishwaukee, and Emerald Hill) as they are the only ones loaded into the system. This scorecard keeps track of putts, score, GIRs, fairways and allows you to view prior rounds.  The prior rounds are stored using Core Data which allows you to save and then reaches them.  
- Version 2.0 iOS 11 Spring 2018</string>
+ Version 2.0 iOS 11 </mutableString>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pDg-an-Vda">
-                                <rect key="frame" x="122" y="573" width="131" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="About Author">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="aboutAuthorButton:" destination="Fbd-tp-bA6" eventType="touchUpInside" id="GM1-su-Lqg"/>
-                                    <segue destination="7U3-gc-8Eu" kind="show" id="SLb-JK-ssu"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="7K0-5n-VL8"/>
@@ -1035,35 +1023,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SKC-cw-Aqd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-895" y="-729"/>
-        </scene>
-        <!--About Author-->
-        <scene sceneID="DLF-vT-NWL">
-            <objects>
-                <viewController storyboardIdentifier="AboutAuthorViewController" title="About Author" id="7U3-gc-8Eu" customClass="AboutAuthorViewController" customModule="golfApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5s4-PT-eM9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UQ1-ht-cjw">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="gny-xS-n8i"/>
-                    </view>
-                    <connections>
-                        <outlet property="webView" destination="UQ1-ht-cjw" id="nHZ-dH-SXB"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ud5-By-0gf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-162" y="-729"/>
         </scene>
         <!--Hole-->
         <scene sceneID="MJg-Fs-7Np">

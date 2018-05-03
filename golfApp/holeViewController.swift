@@ -3,9 +3,7 @@
 //  golfApp
 //
 //Name/Author: John Brechon
-//Z-ID: Z1750010
-//CSCI 321/521, Spring 2018
-//Activity: Student iOS Project
+
 // This viewController deals with all the calculations for each hole
 
 import UIKit
@@ -191,6 +189,7 @@ class holeViewController: UIViewController {
         
         readCourse()
         
+            //adding formatting to holeView Buttons
         holeGIRYesButton.layer.cornerRadius = 5.0
         holeGIRNoButton.layer.cornerRadius = 5.0
         holeFairwayYesButton.layer.cornerRadius = 5.0
@@ -210,6 +209,8 @@ class holeViewController: UIViewController {
         changeGIRNo()
         changeFairwayNo()
         
+        
+            //calling extension function from HomeViewController
         self.hideKeyboardWhenTappedAround()
     
     }
