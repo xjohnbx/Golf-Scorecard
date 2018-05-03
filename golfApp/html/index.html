@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> <!--320-->
+		
+		<title>Mobile Friendly Page</title>
+
+		<!-- CSS -->
+		<link rel="stylesheet" type="css" href="main.css" />
+		<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:600italic,400,600,800' type='text/css' media='all'/>
+
+		<!-- JavaScript -->
+		<script type="text/javascript" src="javascript/jQuery.all.js"></script>
+		<script type="text/javascript" src="javascript/dropDown.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				//Run code upload Page load
+				enableDropDownForIds('#userInfo, #createAccount');
+			});
+		</script>
+	</head>
+	<body>
+		<div id="titleBar" class="blue-gradiant">John Brechon</div>
+		<img src="profile_pic.jpg" id="profile_pic" alt="Profile Picture"/>
+		<div id="name" class="blue-gradiant">EXPERIENCES AND INTERESTS</div>
+		<div class="experienceDetails">
+			<span class="company">Seymour of Sycamore</span>
+			<span class="address">Sycamore, IL, US</span>
+			<span class="yearSpan">2016-Present</span>
+			<span class="positionTitle">IT Support</span>
+			<p>Created an inventory system to efficiently monitor and track inventory levels.</p>
+            <p>Assembled SQL queries and formatted data output for business reports.</p>
+		</div>
+        
+        
+        
+        
+		<hr class="width-75">
+		<div class="experienceDetails">
+        
+        <span class="company">NORTHERN ILLINOIS UNVERSITY</span><span class="address">DeKalb, Illinois</span>
+			<span class="yearSpan">SPRING 2018</span>
+			<span class="positionTitle">UNDERGRADUATE STUDENT</span>
+		  <p>Having fun learning to code in Swift. Planning to start my career as a mobile application developer.</p>
+		</div>
+        
+        
+        
+		<hr class="width-75">
+		<div class="experienceDetails">
+			<span class="company">World Cube Association</span>
+			<span class="address">Dixon, IL</span>
+			<span class="yearSpan">Spring 2011 - CURRENT</span>
+			<span class="positionTitle">EVENT PLANNER</span>
+			<p>Organize Rubiks Cube compeitions for competitors from across the United States.</p>
+		</div>
+		<div id="footer">
+			Designed by Steven Brice (Former student of Kai Rush). Updated for CSCI 321/521, Spring 2017 Course.
+	</div>
+	</body>
+</html>
