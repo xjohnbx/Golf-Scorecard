@@ -11,13 +11,11 @@ import Unbox
 
 struct Course {
     
-    
     var name: String
     var slope: Int
     var rating: Double
     var totalPar: Int
     var holes: [CourseHole]
-    
 }
 
 extension Course: Unboxable {
@@ -35,7 +33,6 @@ struct CourseHole {
     var number: String
     var yards: Int
     var par: Int
-    
 }
 
 extension CourseHole: Unboxable {
