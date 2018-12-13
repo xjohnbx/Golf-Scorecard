@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Unbox
 
 class holeViewController: UIViewController {
 
@@ -125,47 +126,7 @@ class holeViewController: UIViewController {
     var hole17S = 0
     var hole18S = 0
 
-//These are for course details. Yards and Pars
-    var courseName = ""
-    var courseSlope = 0
-    var courseRating = 0
-    var coursetotalPar = 0
-    var course1Par = 0
-    var course1Yards = 0
-    var course2Par = 0
-    var course2Yards = 0
-    var course3Par = 0
-    var course3Yards = 0
-    var course4Par = 0
-    var course4Yards = 0
-    var course5Par = 0
-    var course5Yards = 0
-    var course6Par = 0
-    var course6Yards = 0
-    var course7Par = 0
-    var course7Yards = 0
-    var course8Par = 0
-    var course8Yards = 0
-    var course9Par = 0
-    var course9Yards = 0
-    var course10Par = 0
-    var course10Yards = 0
-    var course11Par = 0
-    var course11Yards = 0
-    var course12Par = 0
-    var course12Yards = 0
-    var course13Par = 0
-    var course13Yards = 0
-    var course14Par = 0
-    var course14Yards = 0
-    var course15Par = 0
-    var course15Yards = 0
-    var course16Par = 0
-    var course16Yards = 0
-    var course17Par = 0
-    var course17Yards = 0
-    var course18Par = 0
-    var course18Yards = 0
+    var course: Course?
  
 //Outlets for on screen info
     @IBOutlet weak var holeScoreTextField: UITextField!
@@ -188,21 +149,22 @@ class holeViewController: UIViewController {
         super.viewDidLoad()
         
         readCourse()
+        print(course)
         
             //adding formatting to holeView Buttons
         holeGIRYesButton.layer.cornerRadius = 5.0
         holeGIRNoButton.layer.cornerRadius = 5.0
-        holeFairwayYesButton.layer.cornerRadius = 5.0
+            holeFairwayYesButton.layer.cornerRadius = 5.0
         holeFairwayNoButton.layer.cornerRadius = 5.0
         previousButton.layer.cornerRadius = 2.0
         nextButton.layer.cornerRadius = 2.0
         
         
             //initialize hole1 values
-        navigationItem.title = courseName
+        //navigationItem.title = courseName
         holeNumber.text = "\(holeNumberCounter)"
-        holePar.text = "\(course1Par)"
-        holeYards.text = "\(course1Yards)"
+     //   holePar.text = "\(course1Par)"
+    //    holeYards.text = "\(course1Yards)"
         userScoreToParLabel.text = "E"
         holeScoreTextField.text = ""
         holePuttsTextField.text = ""
@@ -223,7 +185,7 @@ class holeViewController: UIViewController {
         {
             
             updateUserStats(courseHole: holeNumberCounter)
-            calcScoreToPar(whatHole: holeNumberCounter)
+            //calcScoreToPar(whatHole: holeNumberCounter)
             hole18flag = true
             
             let noHoleAlert1 = UIAlertController(title: "No Hole Alert!", message: "You cannot go to the next hole. You are on Hole #18!", preferredStyle: .alert)
@@ -242,10 +204,10 @@ class holeViewController: UIViewController {
                 {
                     actualHole = holeNumberCounter
                 }
-                calcScoreToPar(whatHole: actualHole)
+                //calcScoreToPar(whatHole: actualHole)
             
                 holeNumberCounter += 1
-                setupHole(holeCounter: holeNumberCounter, toPar: userScoreToPar)
+                //setupHole(holeCounter: holeNumberCounter, toPar: userScoreToPar)
             }
         }
     }
@@ -264,7 +226,7 @@ class holeViewController: UIViewController {
         else
         {
             holeNumberCounter -= 1
-            setupHole(holeCounter: holeNumberCounter, toPar: userScoreToPar)
+            //setupHole(holeCounter: holeNumberCounter, toPar: userScoreToPar)
         
             switch holeNumberCounter {
                 case 1:
@@ -400,7 +362,7 @@ class holeViewController: UIViewController {
     }
    
         //This calcualates the userScoreToPar (+1, -2, etc..)
-    func calcScoreToPar(whatHole: Int)
+/*    func calcScoreToPar(whatHole: Int)
     {
         
         switch whatHole {
@@ -445,6 +407,7 @@ class holeViewController: UIViewController {
         }
         
     }
+ */
 //Update User Stats
     func updateUserStats(courseHole: Int)
     {
@@ -835,7 +798,7 @@ class holeViewController: UIViewController {
         
 //SetUp next Hole: increment hole number and setUp Next hole#, par, and yards
     
-    func setupHole(holeCounter: Int, toPar: Int)
+ /*   func setupHole(holeCounter: Int, toPar: Int)
     {
 
         
@@ -1305,8 +1268,7 @@ class holeViewController: UIViewController {
                 changeGIRNo()
             }
         case 18:
-            holePar.text = "\(course18Par)"
-            holeYards.text = "\(course18Yards)"
+
             if(hole18Pl == true)
             {
                 holeScoreTextField.text = "\(hole18S)"
@@ -1333,7 +1295,7 @@ class holeViewController: UIViewController {
             break
         }
     
-    }
+    }*/
     
     func changeGIRYes()
     {
@@ -1392,64 +1354,33 @@ class holeViewController: UIViewController {
         //can use some kind of parameter to choose between courses in the list then use if statements for what plist gets read.
     func readCourse()
     {
-        var path = Bundle.main.path(forResource: "sycamoreCourse", ofType: "plist")!
-        switch courseChoiceHole {
-        case 1:
-            path = Bundle.main.path(forResource: "sycamoreCourse", ofType: "plist")!
-        case 2:
-            path = Bundle.main.path(forResource: "kishwaukeeCourse", ofType: "plist")!
-        case 3:
-            path = Bundle.main.path(forResource: "emeraldHillCourse", ofType: "plist")!
-        default:
-            break
+        
+        let path = Bundle.main.url(forResource: "kish", withExtension: "json")!
+        var data: Data?
+        do {
+            data = try Data(contentsOf: path)
+        }
+        catch {
+            print(error)
         }
         
-        let courseArray:NSArray = NSArray(contentsOfFile:path)!
-        
-        for course in courseArray {
-            let dictionary: [String: Any] = (course as? Dictionary)!
-            
-            courseName = dictionary["Name"] as! String
-            courseSlope = dictionary["Slope"] as! Int
-            courseRating = dictionary["Rating"] as! Int
-            coursetotalPar = dictionary["totalPar"] as! Int
-            course1Par = dictionary["hole1Par"] as! Int
-            course1Yards = dictionary["hole1Yards"] as! Int
-            course2Par = dictionary["hole2Par"] as! Int
-            course2Yards = dictionary["hole2Yards"] as! Int
-            course3Par = dictionary["hole3Par"] as! Int
-            course3Yards = dictionary["hole3Yards"] as! Int
-            course4Par = dictionary["hole4Par"] as! Int
-            course4Yards = dictionary["hole4Yards"] as! Int
-            course5Par = dictionary["hole5Par"] as! Int
-            course5Yards = dictionary["hole5Yards"] as! Int
-            course6Par = dictionary["hole6Par"] as! Int
-            course6Yards = dictionary["hole6Yards"] as! Int
-            course7Par = dictionary["hole7Par"] as! Int
-            course7Yards = dictionary["hole7Yards"] as! Int
-            course8Par = dictionary["hole8Par"] as! Int
-            course8Yards = dictionary["hole8Yards"] as! Int
-            course9Par = dictionary["hole9Par"] as! Int
-            course9Yards = dictionary["hole9Yards"] as! Int
-            course10Par = dictionary["hole10Par"] as! Int
-            course10Yards = dictionary["hole10Yards"] as! Int
-            course11Par = dictionary["hole11Par"] as! Int
-            course11Yards = dictionary["hole11Yards"] as! Int
-            course12Par = dictionary["hole12Par"] as! Int
-            course12Yards = dictionary["hole12Yards"] as! Int
-            course13Par = dictionary["hole13Par"] as! Int
-            course13Yards = dictionary["hole13Yards"] as! Int
-            course14Par = dictionary["hole14Par"] as! Int
-            course14Yards = dictionary["hole14Yards"] as! Int
-            course15Par = dictionary["hole15Par"] as! Int
-            course15Yards = dictionary["hole15Yards"] as! Int
-            course16Par = dictionary["hole16Par"] as! Int
-            course16Yards = dictionary["hole16Yards"] as! Int
-            course17Par = dictionary["hole17Par"] as! Int
-            course17Yards = dictionary["hole17Yards"] as! Int
-            course18Par = dictionary["hole18Par"] as! Int
-            course18Yards = dictionary["hole18Yards"] as! Int
+        do {
+            course = try unbox(data: data!)
         }
+        catch {
+            print(error)
+        }
+/*        switch courseChoiceHole {
+            case 1:
+                path = Bundle.main.path(forResource: "sycamoreCourse", ofType: "plist")!
+            case 2:
+                path = Bundle.main.path(forResource: "kishwaukeeCourse", ofType: "plist")!
+            case 3:
+                path = Bundle.main.path(forResource: "emeraldHillCourse", ofType: "plist")!
+            default:
+                break
+        }
+ */
     }
     
     
@@ -1482,7 +1413,7 @@ class holeViewController: UIViewController {
     func performSave()
     {
         let newRound = NSEntityDescription.insertNewObject(forEntityName: "GolfRound", into: context)
-        newRound.setValue(courseName, forKey: "courseName")
+        //newRound.setValue(courseName, forKey: "courseName")
         newRound.setValue(Date(), forKey: "date")
         newRound.setValue(hole1F, forKey: "hole1F")
         newRound.setValue(hole2F, forKey: "hole2F")
@@ -1578,7 +1509,7 @@ class holeViewController: UIViewController {
             if(holeNumberCounter == 18)
             {
                 updateUserStats(courseHole: holeNumberCounter)
-                calcScoreToPar(whatHole: holeNumberCounter)
+                //calcScoreToPar(whatHole: holeNumberCounter)
             }
         }
         

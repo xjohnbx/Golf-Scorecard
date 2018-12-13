@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0150D103E5E9A8D479F436B0 /* Pods_golfApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F719F261AEC81BD58FA14E11 /* Pods_golfApp.framework */; };
 		523FE02C20816E6400EE0E52 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523FE02B20816E6400EE0E52 /* AppDelegate.swift */; };
 		523FE03120816E6500EE0E52 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 523FE02F20816E6400EE0E52 /* Main.storyboard */; };
 		523FE03420816E6500EE0E52 /* golfApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 523FE03220816E6500EE0E52 /* golfApp.xcdatamodeld */; };
@@ -15,6 +16,8 @@
 		523FE0472081874300EE0E52 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523FE0462081874300EE0E52 /* HomeViewController.swift */; };
 		523FE0492081878800EE0E52 /* holeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523FE0482081878800EE0E52 /* holeViewController.swift */; };
 		5241A05F208D6735009521C0 /* homeScreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5241A05E208D6734009521C0 /* homeScreen.jpg */; };
+		52526ED821C1D4AD00E5AAEB /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52526ED721C1D4AD00E5AAEB /* Course.swift */; };
+		52526EDA21C1F48200E5AAEB /* kish.json in Resources */ = {isa = PBXBuildFile; fileRef = 52526ED921C1F48200E5AAEB /* kish.json */; };
 		5275E40A2083B38B007CA25E /* sycamoreCourse.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5275E4092083B38B007CA25E /* sycamoreCourse.plist */; };
 		5275E40F2083C41F007CA25E /* emeraldHillCourse.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5275E40D2083C41F007CA25E /* emeraldHillCourse.plist */; };
 		5275E4102083C41F007CA25E /* kishwaukeeCourse.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5275E40E2083C41F007CA25E /* kishwaukeeCourse.plist */; };
@@ -26,6 +29,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		36CCEFE9A2835424942E2DEC /* Pods-golfApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-golfApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-golfApp/Pods-golfApp.release.xcconfig"; sourceTree = "<group>"; };
+		5176AB91F72081EDB7600F5E /* Pods-golfApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-golfApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-golfApp/Pods-golfApp.debug.xcconfig"; sourceTree = "<group>"; };
 		523FE02820816E6400EE0E52 /* golfApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = golfApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		523FE02B20816E6400EE0E52 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		523FE03020816E6400EE0E52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -36,6 +41,8 @@
 		523FE0462081874300EE0E52 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		523FE0482081878800EE0E52 /* holeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = holeViewController.swift; sourceTree = "<group>"; };
 		5241A05E208D6734009521C0 /* homeScreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = homeScreen.jpg; sourceTree = "<group>"; };
+		52526ED721C1D4AD00E5AAEB /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		52526ED921C1F48200E5AAEB /* kish.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = kish.json; sourceTree = SOURCE_ROOT; };
 		5275E4092083B38B007CA25E /* sycamoreCourse.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = sycamoreCourse.plist; sourceTree = "<group>"; };
 		5275E40D2083C41F007CA25E /* emeraldHillCourse.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emeraldHillCourse.plist; sourceTree = "<group>"; };
 		5275E40E2083C41F007CA25E /* kishwaukeeCourse.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = kishwaukeeCourse.plist; sourceTree = "<group>"; };
@@ -44,6 +51,7 @@
 		5275E44320846572007CA25E /* priorRoundsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = priorRoundsViewController.swift; sourceTree = "<group>"; };
 		5275E44520846E38007CA25E /* RoundTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundTableViewCell.swift; sourceTree = "<group>"; };
 		5275E4472084EFC7007CA25E /* RoundDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundDetailViewController.swift; sourceTree = "<group>"; };
+		F719F261AEC81BD58FA14E11 /* Pods_golfApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_golfApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,17 +59,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0150D103E5E9A8D479F436B0 /* Pods_golfApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		159E8E1F23560D1A03A2EEB0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F719F261AEC81BD58FA14E11 /* Pods_golfApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		523FE01F20816E6400EE0E52 = {
 			isa = PBXGroup;
 			children = (
 				523FE02A20816E6400EE0E52 /* golfApp */,
 				523FE02920816E6400EE0E52 /* Products */,
+				97C9ACDC1B38B1BE289C30EE /* Pods */,
+				159E8E1F23560D1A03A2EEB0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				523FE0482081878800EE0E52 /* holeViewController.swift */,
+				52526ED721C1D4AD00E5AAEB /* Course.swift */,
 				5275E44520846E38007CA25E /* RoundTableViewCell.swift */,
 				523FE0462081874300EE0E52 /* HomeViewController.swift */,
 				523FE02B20816E6400EE0E52 /* AppDelegate.swift */,
@@ -91,10 +111,20 @@
 				5275E40D2083C41F007CA25E /* emeraldHillCourse.plist */,
 				5275E40E2083C41F007CA25E /* kishwaukeeCourse.plist */,
 				523FE03A20816E6500EE0E52 /* Info.plist */,
+				52526ED921C1F48200E5AAEB /* kish.json */,
 				5241A05E208D6734009521C0 /* homeScreen.jpg */,
 				523FE03220816E6500EE0E52 /* golfApp.xcdatamodeld */,
 			);
 			path = golfApp;
+			sourceTree = "<group>";
+		};
+		97C9ACDC1B38B1BE289C30EE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5176AB91F72081EDB7600F5E /* Pods-golfApp.debug.xcconfig */,
+				36CCEFE9A2835424942E2DEC /* Pods-golfApp.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -104,9 +134,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 523FE03D20816E6500EE0E52 /* Build configuration list for PBXNativeTarget "golfApp" */;
 			buildPhases = (
+				C2CDF2F139882898AA3C9A2F /* [CP] Check Pods Manifest.lock */,
 				523FE02420816E6400EE0E52 /* Sources */,
 				523FE02520816E6400EE0E52 /* Frameworks */,
 				523FE02620816E6400EE0E52 /* Resources */,
+				F3CEE2203EBAA09F9C47F067 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -155,6 +187,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52526EDA21C1F48200E5AAEB /* kish.json in Resources */,
 				5275E40F2083C41F007CA25E /* emeraldHillCourse.plist in Resources */,
 				523FE03920816E6500EE0E52 /* LaunchScreen.storyboard in Resources */,
 				5275E4102083C41F007CA25E /* kishwaukeeCourse.plist in Resources */,
@@ -167,6 +200,45 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C2CDF2F139882898AA3C9A2F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-golfApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F3CEE2203EBAA09F9C47F067 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-golfApp/Pods-golfApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Unbox/Unbox.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Unbox.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-golfApp/Pods-golfApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		523FE02420816E6400EE0E52 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -175,6 +247,7 @@
 				5275E44420846572007CA25E /* priorRoundsViewController.swift in Sources */,
 				5275E4482084EFC7007CA25E /* RoundDetailViewController.swift in Sources */,
 				5275E44620846E38007CA25E /* RoundTableViewCell.swift in Sources */,
+				52526ED821C1D4AD00E5AAEB /* Course.swift in Sources */,
 				523FE03420816E6500EE0E52 /* golfApp.xcdatamodeld in Sources */,
 				523FE02C20816E6400EE0E52 /* AppDelegate.swift in Sources */,
 				5275E41420841DFC007CA25E /* AboutAppViewController.swift in Sources */,
@@ -322,6 +395,7 @@
 		};
 		523FE03E20816E6500EE0E52 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5176AB91F72081EDB7600F5E /* Pods-golfApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -341,6 +415,7 @@
 		};
 		523FE03F20816E6500EE0E52 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 36CCEFE9A2835424942E2DEC /* Pods-golfApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

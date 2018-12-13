@@ -1,0 +1,98 @@
+{
+    "name": "Kishwaukee Country Club",
+	"slope": 124,
+	"rating": 71.2,
+	"totalPar": 70,
+	"holes": [
+		{
+			"number": "1",
+			"par": 4,
+			"yards": 285
+		},
+		{
+			"number": "2",
+			"par": 3,
+			"yards": 185
+		},
+		{
+			"number": "3",
+			"par": 4,
+			"yards": 430
+		},
+		{
+			"number": "4",
+			"par": 3,
+			"yards": 179
+		},
+		{
+			"number": "5",
+			"par": 4,
+			"yards": 408
+		},
+		{
+			"number": "6",
+			"par": 5,
+			"yards": 463
+		},
+		{
+			"number": "7",
+			"par": 4,
+			"yards": 371
+		},
+		{
+			"number": "8",
+			"par": 4,
+			"yards": 352
+		},
+		{
+			"number": "9",
+			"par": 4,
+			"yards": 394
+		},
+		{
+			"number": "10",
+			"par": 4,
+			"yards": 434
+		},
+		{
+			"number": "11",
+			"par": 4,
+			"yards": 437
+		},
+		{
+			"number": "12",
+			"par": 5,
+			"yards": 524
+		},
+		{
+			"number": "13",
+			"par": 3,
+			"yards": 215
+		},
+		{
+			"number": "14",
+			"par": 4,
+			"yards": 378
+		},
+		{
+			"number": "15",
+			"par": 4,
+			"yards": 323
+		},
+		{
+			"number": "16",
+			"par": 3,
+			"yards": 200
+		},	
+		{
+			"number": "17",
+			"par": 4,
+			"yards": 384
+		},
+		{
+			"number": "18",
+			"par": 4,
+			"yards": 362
+		}
+		]
+}
