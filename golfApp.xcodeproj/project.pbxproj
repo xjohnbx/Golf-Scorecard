@@ -17,9 +17,7 @@
 		523FE0492081878800EE0E52 /* holeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523FE0482081878800EE0E52 /* holeViewController.swift */; };
 		5241A05F208D6735009521C0 /* homeScreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5241A05E208D6734009521C0 /* homeScreen.jpg */; };
 		52526ED821C1D4AD00E5AAEB /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52526ED721C1D4AD00E5AAEB /* Course.swift */; };
-		52526EDA21C1F48200E5AAEB /* kish.json in Resources */ = {isa = PBXBuildFile; fileRef = 52526ED921C1F48200E5AAEB /* kish.json */; };
 		5275E40A2083B38B007CA25E /* sycamoreCourse.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5275E4092083B38B007CA25E /* sycamoreCourse.plist */; };
-		5275E40F2083C41F007CA25E /* emeraldHillCourse.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5275E40D2083C41F007CA25E /* emeraldHillCourse.plist */; };
 		5275E4122083DC58007CA25E /* endRoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5275E4112083DC58007CA25E /* endRoundViewController.swift */; };
 		5275E41420841DFC007CA25E /* AboutAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5275E41320841DFC007CA25E /* AboutAppViewController.swift */; };
 		5275E44420846572007CA25E /* priorRoundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5275E44320846572007CA25E /* priorRoundsViewController.swift */; };
@@ -41,9 +39,7 @@
 		523FE0482081878800EE0E52 /* holeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = holeViewController.swift; sourceTree = "<group>"; };
 		5241A05E208D6734009521C0 /* homeScreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = homeScreen.jpg; sourceTree = "<group>"; };
 		52526ED721C1D4AD00E5AAEB /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
-		52526ED921C1F48200E5AAEB /* kish.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = kish.json; sourceTree = SOURCE_ROOT; };
 		5275E4092083B38B007CA25E /* sycamoreCourse.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = sycamoreCourse.plist; sourceTree = "<group>"; };
-		5275E40D2083C41F007CA25E /* emeraldHillCourse.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emeraldHillCourse.plist; sourceTree = "<group>"; };
 		5275E4112083DC58007CA25E /* endRoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = endRoundViewController.swift; sourceTree = "<group>"; };
 		5275E41320841DFC007CA25E /* AboutAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppViewController.swift; sourceTree = "<group>"; };
 		5275E44320846572007CA25E /* priorRoundsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = priorRoundsViewController.swift; sourceTree = "<group>"; };
@@ -106,9 +102,7 @@
 				5275E4112083DC58007CA25E /* endRoundViewController.swift */,
 				523FE03520816E6500EE0E52 /* Assets.xcassets */,
 				523FE03720816E6500EE0E52 /* LaunchScreen.storyboard */,
-				5275E40D2083C41F007CA25E /* emeraldHillCourse.plist */,
 				523FE03A20816E6500EE0E52 /* Info.plist */,
-				52526ED921C1F48200E5AAEB /* kish.json */,
 				5241A05E208D6734009521C0 /* homeScreen.jpg */,
 				523FE03220816E6500EE0E52 /* golfApp.xcdatamodeld */,
 			);
@@ -184,8 +178,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52526EDA21C1F48200E5AAEB /* kish.json in Resources */,
-				5275E40F2083C41F007CA25E /* emeraldHillCourse.plist in Resources */,
 				523FE03920816E6500EE0E52 /* LaunchScreen.storyboard in Resources */,
 				5275E40A2083B38B007CA25E /* sycamoreCourse.plist in Resources */,
 				523FE03620816E6500EE0E52 /* Assets.xcassets in Resources */,
