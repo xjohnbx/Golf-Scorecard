@@ -1,0 +1,98 @@
+
+{
+    "name": "Sycamore Country Club",
+    "slope": 116,
+    "rating": 67,
+    "totalPar": 71,
+    "holes": [
+              {
+              "number": "1",
+              "par": 4,
+              "yards": 403
+              },
+              {
+              "number": "2",
+              "par": 4,
+              "yards": 350
+              },
+              {
+              "number": "3",
+              "par": 4,
+              "yards": 340
+              },
+              {
+              "number": "4",
+              "par": 4,
+              "yards": 344
+              },
+              {
+              "number": "5",
+              "par": 4,
+              "yards": 352
+              },
+              {
+              "number": "6",
+              "par": 4,
+              "yards": 307
+              },
+              {
+              "number": "7",
+              "par": 3,
+              "yards": 137
+              },
+              {
+              "number": "8",
+              "par": 4,
+              "yards": 445
+              },
+              {
+              "number": "9",
+              "par": 5,
+              "yards": 477
+              },
+              {
+              "number": "10",
+              "par": 3,
+              "yards": 118
+              },
+              {
+              "number": "11",
+              "par": 5,
+              "yards": 446
+              },
+              {
+              "number": "12",
+              "par": 4,
+              "yards": 347
+              },
+              {
+              "number": "13",
+              "par": 5,
+              "yards": 440
+              },
+              {
+              "number": "14",
+              "par": 3,
+              "yards": 166
+              },
+              {
+              "number": "15",
+              "par": 3,
+              "yards": 133
+              },
+              {
+              "number": "16",
+              "par": 4,
+              "yards": 365
+              },
+              {
+              "number": "17",
+              "par": 4,
+              "yards": 297
+              },
+              {
+              "number": "18",
+              "par": 4,
+              "yards": 350              }
+              ]
+}

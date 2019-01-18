@@ -23,11 +23,6 @@ class holeViewController: UIViewController {
     var GIRHit = false
     var holeNumberCounter = 1
     var actualHole = 1
-    var userScoreToPar = 0
-    var totalScore = 0
-    var totalPutts = 0
-    var totalGIRs = 0
-    var totalFairways = 0
 
 //played?
     var holePl = [Bool](repeating: false, count: 18)
@@ -45,7 +40,8 @@ class holeViewController: UIViewController {
     var holeScore = [Int](repeating: 0, count: 18)
 
     var course: Course?
- 
+    var round: Round?
+    
 //Outlets for on screen info
     @IBOutlet weak var holeScoreTextField: UITextField!
     @IBOutlet weak var holePuttsTextField: UITextField!
@@ -67,7 +63,7 @@ class holeViewController: UIViewController {
         super.viewDidLoad()
         
         readCourse()
-        
+        print(courseChoiceHole)
             //adding formatting to holeView Buttons
         holeGIRYesButton.layer.cornerRadius = 5.0
         holeGIRNoButton.layer.cornerRadius = 5.0
@@ -80,8 +76,8 @@ class holeViewController: UIViewController {
             //initialize hole1 values
         navigationItem.title = course?.name
         holeNumber.text = "\(holeNumberCounter)"
-        holePar.text = "\(String(describing: course?.holes[0].par))"
-        holeYards.text = "\(String(describing: course?.holes[0].yards))"
+        holePar.text = "\(course!.holes[0].par)"
+        holeYards.text = "\(course!.holes[0].yards)"
         userScoreToParLabel.text = "E"
         holeScoreTextField.text = ""
         holePuttsTextField.text = ""
@@ -336,8 +332,8 @@ class holeViewController: UIViewController {
      
 
     //non changing fields
-        holePar.text = "\(course?.holes[index].par)"
-        holeYards.text = "\(course?.holes[index].yards)"
+        holePar.text = "\(course!.holes[index].par)"
+        holeYards.text = "\(course!.holes[index].yards)"
         if holePl[index] {
             holeScoreTextField.text = "\(holeScore[index])"
             holePuttsTextField.text = "\(holePutts[index])"
@@ -414,7 +410,18 @@ class holeViewController: UIViewController {
     func readCourse()
     {
         
-        let path = Bundle.main.url(forResource: "kish", withExtension: "json")!
+        var path = Bundle.main.url(forResource: "kish", withExtension: "json")!
+        switch courseChoiceHole {
+            case 1:
+                path = Bundle.main.url(forResource: "sycamore", withExtension: "json")!
+            case 2:
+                path = Bundle.main.url(forResource: "kish", withExtension: "json")!
+            case 3:
+                path = Bundle.main.url(forResource: "emerald", withExtension: "json")!
+            default:
+                break
+         }
+        
         var data: Data?
         do {
             data = try Data(contentsOf: path)
@@ -429,17 +436,7 @@ class holeViewController: UIViewController {
         catch {
             print(error)
         }
-/*        switch courseChoiceHole {
-            case 1:
-                path = Bundle.main.path(forResource: "sycamoreCourse", ofType: "plist")!
-            case 2:
-                path = Bundle.main.path(forResource: "kishwaukeeCourse", ofType: "plist")!
-            case 3:
-                path = Bundle.main.path(forResource: "emeraldHillCourse", ofType: "plist")!
-            default:
-                break
-        }
- */
+
     }
 
     @IBAction func cancelRound(_ sender: Any) {
@@ -545,11 +542,11 @@ class holeViewController: UIViewController {
         newRound.setValue(holeScore[15], forKey: "hole16Score")
         newRound.setValue(holeScore[16], forKey: "hole17Score")
         newRound.setValue(holeScore[17], forKey: "hole18Score")
-        newRound.setValue(totalFairways, forKey: "totalFairways")
-        newRound.setValue(totalGIRs, forKey: "totalGir")
-        newRound.setValue(totalPutts, forKey: "totalPutts")
-        newRound.setValue(totalScore, forKey: "totalScore")
-        newRound.setValue(userScoreToPar, forKey: "scoreToPar")
+        newRound.setValue(round?.totalFairways, forKey: "totalFairways")
+        newRound.setValue(round?.totalGIRs, forKey: "totalGir")
+        newRound.setValue(round?.totalPutts, forKey: "totalPutts")
+        newRound.setValue(round?.totalScore, forKey: "totalScore")
+        newRound.setValue(round?.userScoreToPar, forKey: "scoreToPar")
         
         do {
             try context.save()
@@ -572,25 +569,25 @@ class holeViewController: UIViewController {
         }
         
         if(segue.identifier == "endRound") {
-            totalGIRs = 0
-            totalFairways = 0
+            round?.totalGIRs = 0
+            round?.totalFairways = 0
             let endVC = segue.destination as! endRoundViewController
             
             for x in 0..<18{
-                totalScore += holeScore[x]
+                round?.totalScore += holeScore[x]
                 if holeF[x] {
-                    totalFairways += 1
+                    round?.totalFairways += 1
                 }
                 if holeG[x] {
-                    totalGIRs += 1
+                    round?.totalGIRs += 1
                 }
             }
             
-            endVC.endScore = totalScore
-            endVC.endPutts = totalPutts
-            endVC.endGIR = totalGIRs
-            endVC.endFairway = totalFairways
-            endVC.endScoreToPar = userScoreToPar
+            endVC.endScore = round!.totalScore
+            endVC.endPutts = round!.totalPutts
+            endVC.endGIR = round!.totalGIRs
+            endVC.endFairway = round!.totalFairways
+            endVC.endScoreToPar = round!.userScoreToPar
         }
     }
 }
