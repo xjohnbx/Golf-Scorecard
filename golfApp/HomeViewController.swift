@@ -15,6 +15,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var kishwaukeeCountryClub: UIButton!
     @IBOutlet weak var emeraldHillGolfCourse: UIButton!
     
+    @IBOutlet weak var navigationBar: UINavigationItem!
     @IBOutlet weak var playRoundButton: UIButton!
     @IBOutlet weak var priorRoundsButton: UIButton!
     
@@ -30,19 +31,21 @@ class HomeViewController: UIViewController {
         UIGraphicsEndImageContext()
         self.view.backgroundColor = UIColor(patternImage: image)
         
+        
         playRoundButton.layer.cornerRadius = 53.0
         priorRoundsButton.layer.cornerRadius = 5.0
         sycamoreGolfCourse.layer.cornerRadius = 5.0
         kishwaukeeCountryClub.layer.cornerRadius = 5.0
         emeraldHillGolfCourse.layer.cornerRadius = 5.0
         
+        
 
-        addRightNavigationBarInfoButton()
+//        addRightNavigationBarInfoButton()
         
     }
 
         //Add the aboutApp button
-    func addRightNavigationBarInfoButton() {
+/*    func addRightNavigationBarInfoButton() {
         let button = UIButton(type: .infoDark)
         button.addTarget(self, action: #selector(self.showAboutAppView), for: .touchUpInside)
         
@@ -54,7 +57,8 @@ class HomeViewController: UIViewController {
         let controller = storyboard.instantiateViewController(withIdentifier: "AboutAppNavigationController") as! UINavigationController
         
         self.present(controller, animated: true, completion: nil)
-    }
+    }*/
+    
     @IBAction func sycamoreChoice(_ sender: Any) {
         courseChoice = 1
         
@@ -101,7 +105,7 @@ class HomeViewController: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier == "playRound")
+        if(segue.identifier == "startRound")
         {
             let holeVC = segue.destination as! holeViewController
             
