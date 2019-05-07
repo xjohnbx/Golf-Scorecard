@@ -72,6 +72,9 @@ class holeViewController: UIViewController {
         previousButton.layer.cornerRadius = 2.0
         nextButton.layer.cornerRadius = 2.0
         
+        previousButton.isHidden = true
+        previousButton.isEnabled = false
+        
         
             //initialize hole1 values
         navigationItem.title = course?.name
@@ -101,11 +104,10 @@ class holeViewController: UIViewController {
             //calcScoreToPar(whatHole: holeNumberCounter)
             hole18flag = true
             
-            let noHoleAlert1 = UIAlertController(title: "No Hole Alert!", message: "You cannot go to the next hole. You are on Hole #18!", preferredStyle: .alert)
-            
-            noHoleAlert1.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
-            self.present(noHoleAlert1, animated: true)
+            nextButton.isHidden = true
+            nextButton.isEnabled = false
         }
+            
         else
         {
             if(errorCheck())
@@ -120,7 +122,7 @@ class holeViewController: UIViewController {
                 //calcScoreToPar(whatHole: actualHole)
             
                 holeNumberCounter += 1
-                //setupHole(holeCounter: holeNumberCounter, toPar: userScoreToPar)
+                setupHole(holeCounter: holeNumberCounter, toPar: 1)
             }
         }
     }
@@ -129,25 +131,16 @@ class holeViewController: UIViewController {
     @IBAction func prevHoleButton(_ sender: Any) {
         
             //If hole number one it doesn't let you go to the previous hole
-        if(holeNumberCounter == 1)
-        {
-            let noHoleAlert = UIAlertController(title: "No Hole Alert!", message: "You cannot go to a previous hole. You are on Hole #1!", preferredStyle: .alert)
-            
-            noHoleAlert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
-            self.present(noHoleAlert, animated: true)
-        }
-        else
-        {
-            holeNumberCounter -= 1
-            //setupHole(holeCounter: holeNumberCounter, toPar: userScoreToPar)
-            let index = holeNumberCounter - 1
-            fairwayHit = holeF[index]
-            GIRHit = holeG[index]
-            
-            }
-            
-            updateUserStats(courseHole: holeNumberCounter)
-        }
+        prevButton(hole: holeNumberCounter)
+        
+        holeNumberCounter -= 1
+        setupHole(holeCounter: holeNumberCounter, toPar: 1)
+        let index = holeNumberCounter - 1
+        fairwayHit = holeF[index]
+        GIRHit = holeG[index]
+        
+        updateUserStats(courseHole: holeNumberCounter)
+    }
    
         //Error checking
     func errorCheck() -> Bool
@@ -291,8 +284,11 @@ class holeViewController: UIViewController {
     
     func setupHole(holeCounter: Int, toPar: Int)
     {
-
+        
+        prevButton(hole: holeCounter)
+        nextButton(hole: holeCounter)
         let index = holeCounter - 1
+        
     //Changing fields
         if(toPar == 0)
         {
@@ -406,6 +402,27 @@ class holeViewController: UIViewController {
         changeFairwayNo()
     }
     
+    func prevButton(hole: Int) {
+        if hole == 1 {
+            previousButton.isHidden = true
+            previousButton.isEnabled = false
+        }
+        else {
+            previousButton.isHidden = false
+            previousButton.isEnabled = true
+        }
+    }
+    
+    func nextButton(hole: Int) {
+        if hole == 18 {
+            nextButton.isHidden = true
+            nextButton.isEnabled = false
+        }
+        else {
+            nextButton.isHidden = false
+            nextButton.isEnabled = true
+        }
+    }
         //can use some kind of parameter to choose between courses in the list then use if statements for what plist gets read.
     func readCourse()
     {

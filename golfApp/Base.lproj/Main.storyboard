@@ -922,10 +922,10 @@
             </objects>
             <point key="canvasLocation" x="-895" y="-729"/>
         </scene>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="CCP-MW-4q8">
             <objects>
-                <viewController id="GxG-YC-hSu" sceneMemberID="viewController">
+                <viewController id="GxG-YC-hSu" customClass="HomeViewController" customModule="golfApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BNl-DL-qeh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -991,6 +991,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Afg-1J-7CK"/>
                     </view>
+                    <connections>
+                        <outlet property="emeraldHillGolfCourse" destination="WBH-b6-oF1" id="YB4-6x-t78"/>
+                        <outlet property="kishwaukeeCountryClub" destination="dcS-r2-4vx" id="hfG-OA-jTq"/>
+                        <outlet property="playRoundButton" destination="fDi-al-5zO" id="zje-G3-Tjj"/>
+                        <outlet property="priorRoundsButton" destination="F8s-9f-aIx" id="Gqs-8M-fci"/>
+                        <outlet property="sycamoreGolfCourse" destination="mcv-Gg-cJE" id="xn6-Xd-eeW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1On-Sr-tcl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
