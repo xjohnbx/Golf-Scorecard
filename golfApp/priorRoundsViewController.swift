@@ -12,7 +12,7 @@ class priorRoundsViewController: UIViewController, UITableViewDelegate, UITableV
 
     @IBOutlet weak var tableView: UITableView!
     
-    var roundArray:[GolfRound] = []
+    var roundArray:[Round] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -20,7 +20,7 @@ class RoundDetailViewController: UIViewController, UITableViewDelegate, UITableV
     
     @IBOutlet weak var holeTableView: UITableView!
     
-    var round: GolfRound?
+    var round: Round?
     var hole = 1
     var par = " "
 

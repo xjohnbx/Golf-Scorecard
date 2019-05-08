@@ -10,12 +10,7 @@ import UIKit
 class endRoundViewController: UIViewController {
 
     
-    var endScore = 0
-    var endScoreToPar = 0
-    var endPutts = 0
-    var endGIR = 0
-    var endFairway = 0
-    
+    var endRound:Round?
     
     @IBOutlet weak var endScoreLabel: UILabel!
     @IBOutlet weak var endPuttLabel: UILabel!
@@ -25,7 +20,6 @@ class endRoundViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
             //Adding the background image to ViewController
         UIGraphicsBeginImageContext(self.view.frame.size)
         UIImage(named: "homeScreen.jpg")?.draw(in: self.view.bounds)
@@ -33,22 +27,11 @@ class endRoundViewController: UIViewController {
         UIGraphicsEndImageContext()
         self.view.backgroundColor = UIColor(patternImage: image)
         
-        
-        if(endScoreToPar == 0)
-        {
-            endScoreLabel.text = "\(endScore)" + " (E)"
-        }
-        else if(endScoreToPar > 0)
-        {
-            endScoreLabel.text = "\(endScore)" + " (+" + "\(endScoreToPar)" + ")"
-        }
-        else
-        {
-            endScoreLabel.text = "\(endScore)" + " (" + "\(endScoreToPar)" + ")"
-        }
-        endPuttLabel.text = "\(endPutts)"
-        endGIRLabel.text = "\(endGIR)"
-        endFairwayLabel.text = "\(endFairway)"
+        endScoreLabel.text = "\(String(describing: endRound?.totalScore))" + "(\(String(describing: endRound?.scoreToPar.toParText)))"
+
+        endPuttLabel.text = "\(String(describing: endRound?.totalPutts))"
+        endGIRLabel.text = "\(String(describing: endRound?.totalGIRs))"
+        endFairwayLabel.text = "\(String(describing: endRound?.totalFairways))"
         
     }
 }

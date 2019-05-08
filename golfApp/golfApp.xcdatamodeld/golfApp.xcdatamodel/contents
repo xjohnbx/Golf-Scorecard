@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="18A391" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Hole" representedClassName="Hole" syncable="YES" codeGenerationType="class">
+    <entity name="Hole" representedClassName="Hole" syncable="YES">
         <attribute name="fairwayHit" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="girHit" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="holeNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -8,7 +8,7 @@
         <attribute name="strokes" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="round" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Round" inverseName="holes" inverseEntity="Round" syncable="YES"/>
     </entity>
-    <entity name="Round" representedClassName="Round" syncable="YES" codeGenerationType="class">
+    <entity name="Round" representedClassName="Round" syncable="YES">
         <attribute name="courseName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="scoreToPar" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -16,10 +16,10 @@
         <attribute name="totalGIRs" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="totalPutts" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="totalScore" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="holes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Hole" inverseName="round" inverseEntity="Hole" syncable="YES"/>
+        <relationship name="holes" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Hole" inverseName="round" inverseEntity="Hole" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Round" positionX="-63" positionY="135" width="128" height="165"/>
         <element name="Hole" positionX="-54" positionY="144" width="128" height="135"/>
+        <element name="Round" positionX="-63" positionY="135" width="128" height="165"/>
     </elements>
 </model>

@@ -16,11 +16,14 @@
 		523FE0472081874300EE0E52 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523FE0462081874300EE0E52 /* HomeViewController.swift */; };
 		523FE0492081878800EE0E52 /* holeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523FE0482081878800EE0E52 /* holeViewController.swift */; };
 		5241A05F208D6735009521C0 /* homeScreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5241A05E208D6734009521C0 /* homeScreen.jpg */; };
+		524AD7DE2283572600CA261E /* Round+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524AD7DA2283572600CA261E /* Round+CoreDataClass.swift */; };
+		524AD7DF2283572600CA261E /* Round+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524AD7DB2283572600CA261E /* Round+CoreDataProperties.swift */; };
+		524AD7E02283572600CA261E /* Hole+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524AD7DC2283572600CA261E /* Hole+CoreDataClass.swift */; };
+		524AD7E12283572600CA261E /* Hole+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524AD7DD2283572600CA261E /* Hole+CoreDataProperties.swift */; };
 		5250F707228270DE00F409B4 /* priorRoundHoleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5250F706228270DE00F409B4 /* priorRoundHoleViewCell.swift */; };
 		52526ED821C1D4AD00E5AAEB /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52526ED721C1D4AD00E5AAEB /* Course.swift */; };
 		52526EDD21C4593400E5AAEB /* emerald.json in Resources */ = {isa = PBXBuildFile; fileRef = 52526EDB21C4593300E5AAEB /* emerald.json */; };
 		52526EDE21C4593400E5AAEB /* kish.json in Resources */ = {isa = PBXBuildFile; fileRef = 52526EDC21C4593400E5AAEB /* kish.json */; };
-		52526EE021C49EF300E5AAEB /* Round.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52526EDF21C49EF300E5AAEB /* Round.swift */; };
 		5275E4122083DC58007CA25E /* endRoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5275E4112083DC58007CA25E /* endRoundViewController.swift */; };
 		5275E44420846572007CA25E /* priorRoundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5275E44320846572007CA25E /* priorRoundsViewController.swift */; };
 		5275E44620846E38007CA25E /* RoundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5275E44520846E38007CA25E /* RoundTableViewCell.swift */; };
@@ -41,11 +44,14 @@
 		523FE0462081874300EE0E52 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		523FE0482081878800EE0E52 /* holeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = holeViewController.swift; sourceTree = "<group>"; };
 		5241A05E208D6734009521C0 /* homeScreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = homeScreen.jpg; sourceTree = "<group>"; };
+		524AD7DA2283572600CA261E /* Round+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Round+CoreDataClass.swift"; sourceTree = "<group>"; };
+		524AD7DB2283572600CA261E /* Round+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Round+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		524AD7DC2283572600CA261E /* Hole+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Hole+CoreDataClass.swift"; sourceTree = "<group>"; };
+		524AD7DD2283572600CA261E /* Hole+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Hole+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5250F706228270DE00F409B4 /* priorRoundHoleViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = priorRoundHoleViewCell.swift; sourceTree = "<group>"; };
 		52526ED721C1D4AD00E5AAEB /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		52526EDB21C4593300E5AAEB /* emerald.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = emerald.json; sourceTree = "<group>"; };
 		52526EDC21C4593400E5AAEB /* kish.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = kish.json; sourceTree = "<group>"; };
-		52526EDF21C49EF300E5AAEB /* Round.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Round.swift; sourceTree = "<group>"; };
 		5275E4112083DC58007CA25E /* endRoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = endRoundViewController.swift; sourceTree = "<group>"; };
 		5275E44320846572007CA25E /* priorRoundsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = priorRoundsViewController.swift; sourceTree = "<group>"; };
 		5275E44520846E38007CA25E /* RoundTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundTableViewCell.swift; sourceTree = "<group>"; };
@@ -95,8 +101,11 @@
 		523FE02A20816E6400EE0E52 /* golfApp */ = {
 			isa = PBXGroup;
 			children = (
+				524AD7DA2283572600CA261E /* Round+CoreDataClass.swift */,
+				524AD7DB2283572600CA261E /* Round+CoreDataProperties.swift */,
+				524AD7DC2283572600CA261E /* Hole+CoreDataClass.swift */,
+				524AD7DD2283572600CA261E /* Hole+CoreDataProperties.swift */,
 				523FE0482081878800EE0E52 /* holeViewController.swift */,
-				52526EDF21C49EF300E5AAEB /* Round.swift */,
 				52526ED721C1D4AD00E5AAEB /* Course.swift */,
 				5275E44520846E38007CA25E /* RoundTableViewCell.swift */,
 				523FE0462081874300EE0E52 /* HomeViewController.swift */,
@@ -243,16 +252,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				524AD7DE2283572600CA261E /* Round+CoreDataClass.swift in Sources */,
 				5275E44420846572007CA25E /* priorRoundsViewController.swift in Sources */,
 				5275E4482084EFC7007CA25E /* RoundDetailViewController.swift in Sources */,
 				5275E44620846E38007CA25E /* RoundTableViewCell.swift in Sources */,
-				52526EE021C49EF300E5AAEB /* Round.swift in Sources */,
+				524AD7E02283572600CA261E /* Hole+CoreDataClass.swift in Sources */,
+				524AD7DF2283572600CA261E /* Round+CoreDataProperties.swift in Sources */,
 				52526ED821C1D4AD00E5AAEB /* Course.swift in Sources */,
 				523FE03420816E6500EE0E52 /* golfApp.xcdatamodeld in Sources */,
 				5250F707228270DE00F409B4 /* priorRoundHoleViewCell.swift in Sources */,
 				523FE02C20816E6400EE0E52 /* AppDelegate.swift in Sources */,
 				5275E4122083DC58007CA25E /* endRoundViewController.swift in Sources */,
 				523FE0492081878800EE0E52 /* holeViewController.swift in Sources */,
+				524AD7E12283572600CA261E /* Hole+CoreDataProperties.swift in Sources */,
 				523FE0472081874300EE0E52 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

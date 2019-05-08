@@ -111,6 +111,20 @@ extension UIViewController {
     }
 }
 
+extension Int16 {
+    func toParText(scoreToPar: Int) -> String {
+        if scoreToPar == 0 {
+            return "E"
+        }
+        else if scoreToPar > 0 {
+            return "+" + "\(scoreToPar)"
+        }
+        else {
+            return "\(scoreToPar)"
+        }
+    }
+}
+
 extension Date {
     func asString(style: DateFormatter.Style) -> String {
         let dateFormatter = DateFormatter()

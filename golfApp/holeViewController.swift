@@ -12,14 +12,14 @@ import Unbox
 
 class holeViewController: UIViewController {
 
+    var coreRound:Round?
+    
 //course hole and flags
     var courseChoiceHole = 1
     var badUserScoreFlag = false
     var badUserPuttsFlag = false
     var hole18flag = false
     
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
 //User Values
     var fairwayHit = false
     var GIRHit = false
@@ -65,17 +65,11 @@ class holeViewController: UIViewController {
         
         readCourse()
         print(courseChoiceHole)
-        let round = Round(context: context)
-        round.setValue(course?.name, forKey: "courseName")
-        round.setValue(Date(), forKey: "date")
-        round.setValue(0, forKey: "scoreToPar")
-        round.setValue(0, forKey: "totalFairways")
-        round.setValue(0, forKey: "totalGIRs")
-        round.setValue(0, forKey: "totalPutts")
-        round.setValue(0, forKey: "totalScore")
-        
-        
     
+  
+        
+        
+        
         
         
             //adding formatting to holeView Buttons
@@ -101,8 +95,9 @@ class holeViewController: UIViewController {
         changeGIRNo()
         changeFairwayNo()
         
+        performRoundSave()
         
-            //calling extension function from HomeViewController
+        //calling extension function from HomeViewController
         self.hideKeyboardWhenTappedAround()
     
     }
@@ -111,35 +106,25 @@ class holeViewController: UIViewController {
     @IBAction func nextHoleButton(_ sender: Any) {
         
             //This code stops from going to next hole when on hole 18
-        if(holeNumberCounter == 18)
+       
+        nextButton(hole: holeNumberCounter)
+        
+        if(errorCheck())
         {
-            
-            updateUserStats(courseHole: holeNumberCounter)
-            //calcScoreToPar(whatHole: holeNumberCounter)
-            hole18flag = true
-            
-            nextButton.isHidden = true
-            nextButton.isEnabled = false
-            
-        }
-            
-        else
-        {
-            if(errorCheck())
+            performHoleSave()
+            //updateUserStats(courseHole: holeNumberCounter)
+        
+        
+            if(holeNumberCounter > actualHole)
             {
-                updateUserStats(courseHole: holeNumberCounter)
-            
-            
-                if(holeNumberCounter > actualHole)
-                {
-                    actualHole = holeNumberCounter
-                }
-                //calcScoreToPar(whatHole: actualHole)
-            
-                holeNumberCounter += 1
-                setupHole(holeCounter: holeNumberCounter, toPar: 1)
+                actualHole = holeNumberCounter
             }
+            //calcScoreToPar(whatHole: actualHole)
+        
+            holeNumberCounter += 1
+            setupHole(holeCounter: holeNumberCounter, toPar: 1)
         }
+        
     }
     
         //This takes you to the previous hole
@@ -226,54 +211,8 @@ class holeViewController: UIViewController {
         }
         return false
     }
-   
-        //This calcualates the userScoreToPar (+1, -2, etc..)
-/*    func calcScoreToPar(whatHole: Int)
-    {
-        
-        switch whatHole {
-        case 1:
-            userScoreToPar = (hole1S - course1Par)
-        case 2:
-            userScoreToPar = (hole1S - course1Par) + (hole2S - course2Par)
-        case 3:
-            userScoreToPar = (hole1S - course1Par) + (hole2S - course2Par) + (hole3S - course3Par)
-        case 4:
-            userScoreToPar = (hole1S - course1Par) + (hole2S - course2Par) + (hole3S - course3Par) + (hole4S - course4Par)
-        case 5:
-            userScoreToPar = (hole1S - course1Par) + (hole2S - course2Par) + (hole3S - course3Par) + (hole4S - course4Par) + (hole5S - course5Par)
-        case 6:
-            userScoreToPar = (hole1S - course1Par) + (hole2S - course2Par) + (hole3S - course3Par) + (hole4S - course4Par) + (hole5S - course5Par) + (hole6S - course6Par)
-        case 7:
-            userScoreToPar = (hole1S - course1Par) + (hole2S - course2Par) + (hole3S - course3Par) + (hole4S - course4Par) + (hole5S - course5Par) + (hole6S - course6Par) + (hole7S - course7Par)
-        case 8:
-            userScoreToPar = (hole1S - course1Par) + (hole2S - course2Par) + (hole3S - course3Par) + (hole4S - course4Par) + (hole5S - course5Par) + (hole6S - course6Par) + (hole7S - course7Par) + (hole8S - course8Par)
-        case 9:
-            userScoreToPar = (hole1S - course1Par) + (hole2S - course2Par) + (hole3S - course3Par) + (hole4S - course4Par) + (hole5S - course5Par) + (hole6S - course6Par) + (hole7S - course7Par) + (hole8S - course8Par) + (hole9S - course9Par)
-        case 10:
-            userScoreToPar = (hole1S - course1Par) + (hole2S - course2Par) + (hole3S - course3Par) + (hole4S - course4Par) + (hole5S - course5Par) + (hole6S - course6Par) + (hole7S - course7Par) + (hole8S - course8Par) + (hole9S - course9Par) + (hole10S - course10Par)
-        case 11:
-            userScoreToPar = (hole1S - course1Par) + (hole2S - course2Par) + (hole3S - course3Par) + (hole4S - course4Par) + (hole5S - course5Par) + (hole6S - course6Par) + (hole7S - course7Par) + (hole8S - course8Par) + (hole9S - course9Par) + (hole10S - course10Par) + (hole11S - course11Par)
-        case 12:
-            userScoreToPar = (hole1S - course1Par) + (hole2S - course2Par) + (hole3S - course3Par) + (hole4S - course4Par) + (hole5S - course5Par) + (hole6S - course6Par) + (hole7S - course7Par) + (hole8S - course8Par) + (hole9S - course9Par) + (hole10S - course10Par) + (hole11S - course11Par) + (hole12S - course12Par)
-        case 13:
-            userScoreToPar = (hole1S - course1Par) + (hole2S - course2Par) + (hole3S - course3Par) + (hole4S - course4Par) + (hole5S - course5Par) + (hole6S - course6Par) + (hole7S - course7Par) + (hole8S - course8Par) + (hole9S - course9Par) + (hole10S - course10Par) + (hole11S - course11Par) + (hole12S - course12Par) + (hole13S - course13Par)
-        case 14:
-            userScoreToPar = (hole1S - course1Par) + (hole2S - course2Par) + (hole3S - course3Par) + (hole4S - course4Par) + (hole5S - course5Par) + (hole6S - course6Par) + (hole7S - course7Par) + (hole8S - course8Par) + (hole9S - course9Par) + (hole10S - course10Par) + (hole11S - course11Par) + (hole12S - course12Par) + (hole13S - course13Par) + (hole14S - course14Par)
-        case 15:
-            userScoreToPar = (hole1S - course1Par) + (hole2S - course2Par) + (hole3S - course3Par) + (hole4S - course4Par) + (hole5S - course5Par) + (hole6S - course6Par) + (hole7S - course7Par) + (hole8S - course8Par) + (hole9S - course9Par) + (hole10S - course10Par) + (hole11S - course11Par) + (hole12S - course12Par) + (hole13S - course13Par) + (hole14S - course14Par) + (hole15S - course15Par)
-        case 16:
-            userScoreToPar = (hole1S - course1Par) + (hole2S - course2Par) + (hole3S - course3Par) + (hole4S - course4Par) + (hole5S - course5Par) + (hole6S - course6Par) + (hole7S - course7Par) + (hole8S - course8Par) + (hole9S - course9Par) + (hole10S - course10Par) + (hole11S - course11Par) + (hole12S - course12Par) + (hole13S - course13Par) + (hole14S - course14Par) + (hole15S - course15Par) + (hole16S - course16Par)
-        case 17:
-            userScoreToPar = (hole1S - course1Par) + (hole2S - course2Par) + (hole3S - course3Par) + (hole4S - course4Par) + (hole5S - course5Par) + (hole6S - course6Par) + (hole7S - course7Par) + (hole8S - course8Par) + (hole9S - course9Par) + (hole10S - course10Par) + (hole11S - course11Par) + (hole12S - course12Par) + (hole13S - course13Par) + (hole14S - course14Par) + (hole15S - course15Par) + (hole16S - course16Par) + (hole17S - course17Par)
-        case 18:
-            userScoreToPar = (hole1S - course1Par) + (hole2S - course2Par) + (hole3S - course3Par) + (hole4S - course4Par) + (hole5S - course5Par) + (hole6S - course6Par) + (hole7S - course7Par) + (hole8S - course8Par) + (hole9S - course9Par) + (hole10S - course10Par) + (hole11S - course11Par) + (hole12S - course12Par) + (hole13S - course13Par) + (hole14S - course14Par) + (hole15S - course15Par) + (hole16S - course16Par) + (hole17S - course17Par) + (hole18S - course18Par)
-        default:
-            break
-        }
-        
-    }
- */
+
+/*
 //Update User Stats
     func updateUserStats(courseHole: Int)
     {
@@ -294,7 +233,9 @@ class holeViewController: UIViewController {
             holeG[index] = false
         }
     }
-        
+ 
+ */
+    
 //SetUp next Hole: increment hole number and setUp Next hole#, par, and yards
     
     func setupHole(holeCounter: Int, toPar: Int)
@@ -488,101 +429,54 @@ class holeViewController: UIViewController {
         let saveRoundHoleAlert = UIAlertController(title: "Save Round", message: "You are about to save the round. This prevents any more changes. Are you sure you want to save?", preferredStyle: .alert)
         
         saveRoundHoleAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
-            self.performSave()
+            self.performRoundSave()
             self.navigationController?.popViewController(animated: true)
         }))
         saveRoundHoleAlert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
         self.present(saveRoundHoleAlert, animated: true)
     }
     
-    func performSave()
+    func performHoleSave() {
+        
+        let holeNumber = holeNumberCounter
+        let putts = Int(holePuttsTextField.text!)
+        let strokes = Int(holeScoreTextField.text!)
+        let gir = GIRHit
+        let fairway = fairwayHit
+        let scoreToPar = strokes! - course!.holes[holeNumberCounter - 1].par
+        
+        let hole = Hole(holeNumber: Int16(holeNumber), putts: Int16(putts!), strokes: Int16(strokes!), fairwayHit: fairway, girHit: gir)
+        coreRound?.addToHoles(hole)
+        do {
+            try hole.managedObjectContext?.save()
+        } catch {
+            print("Hole was not saved")
+        }
+        editRoundValues(strokes: strokes!, putts: putts!, gir: gir, fairway: fairway, scoreToPar: scoreToPar)
+    }
+    
+    func performRoundSave()
     {
-        let newRound = NSEntityDescription.insertNewObject(forEntityName: "GolfRound", into: context)
-        //newRound.setValue(courseName, forKey: "courseName")
-        newRound.setValue(Date(), forKey: "date")
-        newRound.setValue(holeF[0], forKey: "hole1F")
-        newRound.setValue(holeF[1], forKey: "hole2F")
-        newRound.setValue(holeF[2], forKey: "hole3F")
-        newRound.setValue(holeF[3], forKey: "hole4F")
-        newRound.setValue(holeF[4], forKey: "hole5F")
-        newRound.setValue(holeF[5], forKey: "hole6F")
-        newRound.setValue(holeF[6], forKey: "hole7F")
-        newRound.setValue(holeF[7], forKey: "hole8F")
-        newRound.setValue(holeF[8], forKey: "hole9F")
-        newRound.setValue(holeF[9], forKey: "hole10F")
-        newRound.setValue(holeF[10], forKey: "hole11F")
-        newRound.setValue(holeF[11], forKey: "hole12F")
-        newRound.setValue(holeF[12], forKey: "hole13F")
-        newRound.setValue(holeF[13], forKey: "hole14F")
-        newRound.setValue(holeF[14], forKey: "hole15F")
-        newRound.setValue(holeF[15], forKey: "hole16F")
-        newRound.setValue(holeF[16], forKey: "hole17F")
-        newRound.setValue(holeF[17], forKey: "hole18F")
-        newRound.setValue(holeG[0], forKey: "hole1G")
-        newRound.setValue(holeG[1], forKey: "hole2G")
-        newRound.setValue(holeG[2], forKey: "hole3G")
-        newRound.setValue(holeG[3], forKey: "hole4G")
-        newRound.setValue(holeG[4], forKey: "hole5G")
-        newRound.setValue(holeG[5], forKey: "hole6G")
-        newRound.setValue(holeG[6], forKey: "hole7G")
-        newRound.setValue(holeG[7], forKey: "hole8G")
-        newRound.setValue(holeG[8], forKey: "hole9G")
-        newRound.setValue(holeG[9], forKey: "hole10G")
-        newRound.setValue(holeG[10], forKey: "hole11G")
-        newRound.setValue(holeG[11], forKey: "hole12G")
-        newRound.setValue(holeG[12], forKey: "hole13G")
-        newRound.setValue(holeG[13], forKey: "hole14G")
-        newRound.setValue(holeG[14], forKey: "hole15G")
-        newRound.setValue(holeG[15], forKey: "hole16G")
-        newRound.setValue(holeG[16], forKey: "hole17G")
-        newRound.setValue(holeG[17], forKey: "hole18G")
-        newRound.setValue(holePutts[0], forKey: "hole1Putts")
-        newRound.setValue(holePutts[1], forKey: "hole2Putts")
-        newRound.setValue(holePutts[2], forKey: "hole3Putts")
-        newRound.setValue(holePutts[3], forKey: "hole4Putts")
-        newRound.setValue(holePutts[4], forKey: "hole5Putts")
-        newRound.setValue(holePutts[5], forKey: "hole6Putts")
-        newRound.setValue(holePutts[6], forKey: "hole7Putts")
-        newRound.setValue(holePutts[7], forKey: "hole8Putts")
-        newRound.setValue(holePutts[8], forKey: "hole9Putts")
-        newRound.setValue(holePutts[9], forKey: "hole10Putts")
-        newRound.setValue(holePutts[10], forKey: "hole11Putts")
-        newRound.setValue(holePutts[11], forKey: "hole12Putts")
-        newRound.setValue(holePutts[12], forKey: "hole13Putts")
-        newRound.setValue(holePutts[13], forKey: "hole14Putts")
-        newRound.setValue(holePutts[14], forKey: "hole15Putts")
-        newRound.setValue(holePutts[15], forKey: "hole16Putts")
-        newRound.setValue(holePutts[16], forKey: "hole17Putts")
-        newRound.setValue(holePutts[17], forKey: "hole18Putts")
-        newRound.setValue(holeScore[0], forKey: "hole1Score")
-        newRound.setValue(holeScore[1], forKey: "hole2Score")
-        newRound.setValue(holeScore[2], forKey: "hole3Score")
-        newRound.setValue(holeScore[3], forKey: "hole4Score")
-        newRound.setValue(holeScore[4], forKey: "hole5Score")
-        newRound.setValue(holeScore[5], forKey: "hole6Score")
-        newRound.setValue(holeScore[6], forKey: "hole7Score")
-        newRound.setValue(holeScore[7], forKey: "hole8Score")
-        newRound.setValue(holeScore[8], forKey: "hole9Score")
-        newRound.setValue(holeScore[9], forKey: "hole10Score")
-        newRound.setValue(holeScore[10], forKey: "hole11Score")
-        newRound.setValue(holeScore[11], forKey: "hole12Score")
-        newRound.setValue(holeScore[12], forKey: "hole13Score")
-        newRound.setValue(holeScore[13], forKey: "hole14Score")
-        newRound.setValue(holeScore[14], forKey: "hole15Score")
-        newRound.setValue(holeScore[15], forKey: "hole16Score")
-        newRound.setValue(holeScore[16], forKey: "hole17Score")
-        newRound.setValue(holeScore[17], forKey: "hole18Score")
-/*        newRound.setValue(round?.totalFairways, forKey: "totalFairways")
-        newRound.setValue(round?.totalGIRs, forKey: "totalGir")
-        newRound.setValue(round?.totalPutts, forKey: "totalPutts")
-        newRound.setValue(round?.totalScore, forKey: "totalScore")
-        newRound.setValue(round?.userScoreToPar, forKey: "scoreToPar")*/
+        let round = Round(courseName: (course?.name)!, date: Date(), scoreToPar: 0, totalFairways: 0, totalGIRs: 0, totalPutts: 0, totalScore: 0)
         
         do {
-            try context.save()
+            try round.managedObjectContext?.save()
+            coreRound = round
+            
+        } catch {
+            print("Could not save round.")
         }
-        catch {
-            print(error)
+    }
+    
+    func editRoundValues(strokes: Int, putts: Int, gir: Bool, fairway: Bool, scoreToPar: Int) {
+        coreRound?.totalScore += Int16(strokes)
+        coreRound?.totalPutts += Int16(putts)
+        coreRound?.scoreToPar += Int16(scoreToPar)
+        if gir {
+            coreRound?.totalGIRs += 1
+        }
+        if fairway {
+            coreRound?.totalFairways += 1
         }
     }
     
@@ -599,25 +493,8 @@ class holeViewController: UIViewController {
         }
         
         if(segue.identifier == "endRound") {
-            round?.totalGIRs = 0
-            round?.totalFairways = 0
             let endVC = segue.destination as! endRoundViewController
-            
-            for x in 0..<18{
-                round?.totalScore += holeScore[x]
-                if holeF[x] {
-                    round?.totalFairways += 1
-                }
-                if holeG[x] {
-                    round?.totalGIRs += 1
-                }
-            }
-            
-            endVC.endScore = round!.totalScore
-            endVC.endPutts = round!.totalPutts
-            endVC.endGIR = round!.totalGIRs
-            endVC.endFairway = round!.totalFairways
-            endVC.endScoreToPar = round!.userScoreToPar
+            endVC.endRound = coreRound
         }
     }
 }
