@@ -139,7 +139,7 @@ class holeViewController: UIViewController {
         fairwayHit = holeF[index]
         GIRHit = holeG[index]
         
-        updateUserStats(courseHole: holeNumberCounter)
+//        updateUserStats(courseHole: holeNumberCounter)
     }
    
         //Error checking
@@ -487,8 +487,8 @@ class holeViewController: UIViewController {
         {
             if(holeNumberCounter == 18)
             {
-                updateUserStats(courseHole: holeNumberCounter)
-                //calcScoreToPar(whatHole: holeNumberCounter)
+//                updateUserStats(courseHole: holeNumberCounter)
+
             }
         }
         

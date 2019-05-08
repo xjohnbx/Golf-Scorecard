@@ -40,22 +40,11 @@ class priorRoundsViewController: UIViewController, UITableViewDelegate, UITableV
         
         let round = roundArray[indexPath.row]
         
-        var toPar = " "
-        if(round.scoreToPar == 0)
-        {
-            toPar = "E"
-        }
-        else if(round.scoreToPar > 0)
-        {
-            toPar = "+" + "\(round.scoreToPar)"
-        }
-        else
-        {
-            toPar = "\(round.scoreToPar)"
-        }
+        let toPar = round.scoreToPar.toParText(scoreToPar: Int(round.scoreToPar))
+       
         
         cell.cellCourseName.text = round.courseName
-        cell.cellDate.text = (round.date)?.asString(style: .short)
+        cell.cellDate.text = round.newDate?.asString(style: .medium)
         cell.cellToPar.text = toPar
         cell.cellStrokes.text = "\(round.totalScore)"
         
@@ -73,7 +62,7 @@ class priorRoundsViewController: UIViewController, UITableViewDelegate, UITableV
             (UIApplication.shared.delegate as! AppDelegate).saveContext()
         
             do {
-                roundArray = try context.fetch(GolfRound.fetchRequest())
+                roundArray = try context.fetch(Round.fetchRequest())
             }
             catch{
                 print(error)
@@ -89,7 +78,7 @@ class priorRoundsViewController: UIViewController, UITableViewDelegate, UITableV
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
         do {
-            roundArray = try context.fetch(GolfRound.fetchRequest())
+            roundArray = try context.fetch(Round.fetchRequest())
         }
         catch {
             print(error)

@@ -22,32 +22,19 @@ class RoundDetailViewController: UIViewController, UITableViewDelegate, UITableV
     
     var round: Round?
     var hole = 1
-    var par = " "
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         dcourseName.text = round!.courseName
         dStrokes.text = "\(round!.totalScore)"
-        ddate.text = (round!.date)?.asString(style: .short)
+        ddate.text = round?.newDate?.asString(style: .short)
         
-        if(round!.scoreToPar == 0)
-        {
-            par = "E"
-        }
-        else if(round!.scoreToPar > 0)
-        {
-            par = "+" + "\(round!.scoreToPar)"
-        }
-        else
-        {
-            par = "\(round!.scoreToPar)"
-        }
-        
+        let par = round!.scoreToPar.toParText(scoreToPar: Int(round!.scoreToPar))
+ 
         dScoreToPar.text = par
         dPutts.text = "\(round!.totalPutts)"
-        dGIRs.text = "\(round!.totalGir)"
+        dGIRs.text = "\(round!.totalGIRs)"
         dFIRs.text = "\(round!.totalFairways)"
         dStrokes.text = "\(round!.totalScore)"
         holeTableView.delegate = self
