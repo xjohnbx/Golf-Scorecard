@@ -10,13 +10,12 @@ import UIKit
 
 class priorRoundHoleViewCell: UITableViewCell {
 
+
     @IBOutlet weak var holeLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
-    @IBOutlet weak var puttLabel: UILabel!
-    
-    
+    @IBOutlet weak var puttsLabel: UILabel!
     @IBOutlet weak var fairwayImage: UIImageView!
-    @IBOutlet weak var greenImage: UIImageView!
+    @IBOutlet weak var GIRImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

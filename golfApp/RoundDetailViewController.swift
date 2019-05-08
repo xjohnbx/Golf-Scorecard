@@ -7,8 +7,7 @@
 
 import UIKit
 
-class RoundDetailViewController: UIViewController {
-
+class RoundDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var dcourseName: UILabel!
     @IBOutlet weak var ddate: UILabel!
@@ -20,6 +19,7 @@ class RoundDetailViewController: UIViewController {
 
     
     @IBOutlet weak var holeTableView: UITableView!
+    
     var round: GolfRound?
     var par = " "
 
@@ -50,4 +50,13 @@ class RoundDetailViewController: UIViewController {
         dFIRs.text = "\(round!.totalFairways)"
         dStrokes.text = "\(round!.totalScore)"
     }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 18
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
+    
 }

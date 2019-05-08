@@ -16,7 +16,6 @@
 		523FE0472081874300EE0E52 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523FE0462081874300EE0E52 /* HomeViewController.swift */; };
 		523FE0492081878800EE0E52 /* holeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523FE0482081878800EE0E52 /* holeViewController.swift */; };
 		5241A05F208D6735009521C0 /* homeScreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5241A05E208D6734009521C0 /* homeScreen.jpg */; };
-		5250F705228268A000F409B4 /* priorRoundDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5250F704228268A000F409B4 /* priorRoundDetailCell.xib */; };
 		5250F707228270DE00F409B4 /* priorRoundHoleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5250F706228270DE00F409B4 /* priorRoundHoleViewCell.swift */; };
 		52526ED821C1D4AD00E5AAEB /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52526ED721C1D4AD00E5AAEB /* Course.swift */; };
 		52526EDD21C4593400E5AAEB /* emerald.json in Resources */ = {isa = PBXBuildFile; fileRef = 52526EDB21C4593300E5AAEB /* emerald.json */; };
@@ -43,7 +42,6 @@
 		523FE0462081874300EE0E52 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		523FE0482081878800EE0E52 /* holeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = holeViewController.swift; sourceTree = "<group>"; };
 		5241A05E208D6734009521C0 /* homeScreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = homeScreen.jpg; sourceTree = "<group>"; };
-		5250F704228268A000F409B4 /* priorRoundDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = priorRoundDetailCell.xib; sourceTree = "<group>"; };
 		5250F706228270DE00F409B4 /* priorRoundHoleViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = priorRoundHoleViewCell.swift; sourceTree = "<group>"; };
 		52526ED721C1D4AD00E5AAEB /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		52526EDB21C4593300E5AAEB /* emerald.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = emerald.json; sourceTree = "<group>"; };
@@ -106,7 +104,6 @@
 				523FE0462081874300EE0E52 /* HomeViewController.swift */,
 				523FE02B20816E6400EE0E52 /* AppDelegate.swift */,
 				523FE02F20816E6400EE0E52 /* Main.storyboard */,
-				5250F704228268A000F409B4 /* priorRoundDetailCell.xib */,
 				5275E4472084EFC7007CA25E /* RoundDetailViewController.swift */,
 				5250F706228270DE00F409B4 /* priorRoundHoleViewCell.swift */,
 				5275E44320846572007CA25E /* priorRoundsViewController.swift */,
@@ -193,7 +190,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5250F705228268A000F409B4 /* priorRoundDetailCell.xib in Resources */,
 				52FE9BA521F27A0700C4D8CE /* sycamore.json in Resources */,
 				523FE03920816E6500EE0E52 /* LaunchScreen.storyboard in Resources */,
 				52526EDD21C4593400E5AAEB /* emerald.json in Resources */,
