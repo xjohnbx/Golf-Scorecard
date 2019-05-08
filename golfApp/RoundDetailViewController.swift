@@ -21,6 +21,7 @@ class RoundDetailViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var holeTableView: UITableView!
     
     var round: GolfRound?
+    var hole = 1
     var par = " "
 
     
@@ -49,6 +50,8 @@ class RoundDetailViewController: UIViewController, UITableViewDelegate, UITableV
         dGIRs.text = "\(round!.totalGir)"
         dFIRs.text = "\(round!.totalFairways)"
         dStrokes.text = "\(round!.totalScore)"
+        holeTableView.delegate = self
+        holeTableView.dataSource = self
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -56,7 +59,13 @@ class RoundDetailViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cell = holeTableView.dequeueReusableCell(withIdentifier: "HOLECELL") as! priorRoundHoleViewCell
+        cell.holeLabel.text = "\(hole)"
+        
+        
+        hole += 1
+        print(cell)
+        return cell
     }
     
 }

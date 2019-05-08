@@ -82,10 +82,6 @@ class priorRoundsViewController: UIViewController, UITableViewDelegate, UITableV
         }
         
         tableView.reloadData()
-        
-        
-        
-        
     }
     
     func fetchData() {

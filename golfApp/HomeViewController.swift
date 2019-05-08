@@ -37,26 +37,12 @@ class HomeViewController: UIViewController {
         kishwaukeeCountryClub.layer.cornerRadius = 5.0
         emeraldHillGolfCourse.layer.cornerRadius = 5.0
         
-        
-
-//        addRightNavigationBarInfoButton()
-        
     }
 
-        //Add the aboutApp button
-/*    func addRightNavigationBarInfoButton() {
-        let button = UIButton(type: .infoDark)
-        button.addTarget(self, action: #selector(self.showAboutAppView), for: .touchUpInside)
-        
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
+
+    @IBAction func priorRoundClicked(_ sender: Any) {
+        performSegue(withIdentifier: "priorRound", sender: nil)
     }
-    
-    @objc func showAboutAppView() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "AboutAppNavigationController") as! UINavigationController
-        
-        self.present(controller, animated: true, completion: nil)
-    }*/
     
     @IBAction func sycamoreChoice(_ sender: Any) {
         courseChoice = 1

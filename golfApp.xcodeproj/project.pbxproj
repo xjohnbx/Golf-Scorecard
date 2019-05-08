@@ -22,7 +22,6 @@
 		52526EDE21C4593400E5AAEB /* kish.json in Resources */ = {isa = PBXBuildFile; fileRef = 52526EDC21C4593400E5AAEB /* kish.json */; };
 		52526EE021C49EF300E5AAEB /* Round.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52526EDF21C49EF300E5AAEB /* Round.swift */; };
 		5275E4122083DC58007CA25E /* endRoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5275E4112083DC58007CA25E /* endRoundViewController.swift */; };
-		5275E41420841DFC007CA25E /* AboutAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5275E41320841DFC007CA25E /* AboutAppViewController.swift */; };
 		5275E44420846572007CA25E /* priorRoundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5275E44320846572007CA25E /* priorRoundsViewController.swift */; };
 		5275E44620846E38007CA25E /* RoundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5275E44520846E38007CA25E /* RoundTableViewCell.swift */; };
 		5275E4482084EFC7007CA25E /* RoundDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5275E4472084EFC7007CA25E /* RoundDetailViewController.swift */; };
@@ -48,7 +47,6 @@
 		52526EDC21C4593400E5AAEB /* kish.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = kish.json; sourceTree = "<group>"; };
 		52526EDF21C49EF300E5AAEB /* Round.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Round.swift; sourceTree = "<group>"; };
 		5275E4112083DC58007CA25E /* endRoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = endRoundViewController.swift; sourceTree = "<group>"; };
-		5275E41320841DFC007CA25E /* AboutAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppViewController.swift; sourceTree = "<group>"; };
 		5275E44320846572007CA25E /* priorRoundsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = priorRoundsViewController.swift; sourceTree = "<group>"; };
 		5275E44520846E38007CA25E /* RoundTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundTableViewCell.swift; sourceTree = "<group>"; };
 		5275E4472084EFC7007CA25E /* RoundDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundDetailViewController.swift; sourceTree = "<group>"; };
@@ -107,7 +105,6 @@
 				5275E4472084EFC7007CA25E /* RoundDetailViewController.swift */,
 				5250F706228270DE00F409B4 /* priorRoundHoleViewCell.swift */,
 				5275E44320846572007CA25E /* priorRoundsViewController.swift */,
-				5275E41320841DFC007CA25E /* AboutAppViewController.swift */,
 				52526EDB21C4593300E5AAEB /* emerald.json */,
 				52FE9BA421F27A0700C4D8CE /* sycamore.json */,
 				52526EDC21C4593400E5AAEB /* kish.json */,
@@ -254,7 +251,6 @@
 				523FE03420816E6500EE0E52 /* golfApp.xcdatamodeld in Sources */,
 				5250F707228270DE00F409B4 /* priorRoundHoleViewCell.swift in Sources */,
 				523FE02C20816E6400EE0E52 /* AppDelegate.swift in Sources */,
-				5275E41420841DFC007CA25E /* AboutAppViewController.swift in Sources */,
 				5275E4122083DC58007CA25E /* endRoundViewController.swift in Sources */,
 				523FE0492081878800EE0E52 /* holeViewController.swift in Sources */,
 				523FE0472081874300EE0E52 /* HomeViewController.swift in Sources */,
