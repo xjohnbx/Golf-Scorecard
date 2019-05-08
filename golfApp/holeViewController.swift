@@ -17,6 +17,8 @@ class holeViewController: UIViewController {
     var badUserScoreFlag = false
     var badUserPuttsFlag = false
     var hole18flag = false
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
 //User Values
     var fairwayHit = false
@@ -40,7 +42,6 @@ class holeViewController: UIViewController {
     var holeScore = [Int](repeating: 0, count: 18)
 
     var course: Course?
-    var round: Round?
     
 //Outlets for on screen info
     @IBOutlet weak var holeScoreTextField: UITextField!
@@ -64,6 +65,19 @@ class holeViewController: UIViewController {
         
         readCourse()
         print(courseChoiceHole)
+        let round = Round(context: context)
+        round.setValue(course?.name, forKey: "courseName")
+        round.setValue(Date(), forKey: "date")
+        round.setValue(0, forKey: "scoreToPar")
+        round.setValue(0, forKey: "totalFairways")
+        round.setValue(0, forKey: "totalGIRs")
+        round.setValue(0, forKey: "totalPutts")
+        round.setValue(0, forKey: "totalScore")
+        
+        
+    
+        
+        
             //adding formatting to holeView Buttons
         holeGIRYesButton.layer.cornerRadius = 5.0
         holeGIRNoButton.layer.cornerRadius = 5.0
@@ -106,6 +120,7 @@ class holeViewController: UIViewController {
             
             nextButton.isHidden = true
             nextButton.isEnabled = false
+            
         }
             
         else
@@ -480,8 +495,6 @@ class holeViewController: UIViewController {
         self.present(saveRoundHoleAlert, animated: true)
     }
     
-    var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
     func performSave()
     {
         let newRound = NSEntityDescription.insertNewObject(forEntityName: "GolfRound", into: context)
@@ -559,11 +572,11 @@ class holeViewController: UIViewController {
         newRound.setValue(holeScore[15], forKey: "hole16Score")
         newRound.setValue(holeScore[16], forKey: "hole17Score")
         newRound.setValue(holeScore[17], forKey: "hole18Score")
-        newRound.setValue(round?.totalFairways, forKey: "totalFairways")
+/*        newRound.setValue(round?.totalFairways, forKey: "totalFairways")
         newRound.setValue(round?.totalGIRs, forKey: "totalGir")
         newRound.setValue(round?.totalPutts, forKey: "totalPutts")
         newRound.setValue(round?.totalScore, forKey: "totalScore")
-        newRound.setValue(round?.userScoreToPar, forKey: "scoreToPar")
+        newRound.setValue(round?.userScoreToPar, forKey: "scoreToPar")*/
         
         do {
             try context.save()
