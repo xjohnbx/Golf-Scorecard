@@ -95,7 +95,7 @@ class holeViewController: UIViewController {
         changeGIRNo()
         changeFairwayNo()
         
-        performRoundSave()
+        createRound()
         
         //calling extension function from HomeViewController
         self.hideKeyboardWhenTappedAround()
@@ -129,9 +129,6 @@ class holeViewController: UIViewController {
     
         //This takes you to the previous hole
     @IBAction func prevHoleButton(_ sender: Any) {
-        
-            //If hole number one it doesn't let you go to the previous hole
-        prevButton(hole: holeNumberCounter)
         
         holeNumberCounter -= 1
         setupHole(holeCounter: holeNumberCounter, toPar: 1)
@@ -246,18 +243,7 @@ class holeViewController: UIViewController {
         let index = holeCounter - 1
         
     //Changing fields
-        if(toPar == 0)
-        {
-            userScoreToParLabel.text = "E"
-        }
-        else if(toPar > 0)
-        {
-            userScoreToParLabel.text = "+" + "\(toPar)"
-        }
-        else
-        {
-            userScoreToParLabel.text = "\(toPar)"
-        }
+        userScoreToParLabel.text = Int16(toPar).toParText(scoreToPar: toPar)
         
         holeScoreTextField.text = ""
         holePuttsTextField.text = ""
@@ -281,7 +267,7 @@ class holeViewController: UIViewController {
         badUserScoreFlag = false
         
         holeNumber.text = "\(holeCounter)"
-     
+        coreRound?.holes
 
     //non changing fields
         holePar.text = "\(course!.holes[index].par)"
@@ -310,7 +296,6 @@ class holeViewController: UIViewController {
         self.holeGIRYesButton.setTitleColor(.black, for: .normal)
         self.holeGIRNoButton.backgroundColor = UIColor.clear
         self.holeGIRNoButton.setTitleColor(.black, for: .normal)
-        
     }
     
     func changeGIRNo()
@@ -429,7 +414,11 @@ class holeViewController: UIViewController {
         let saveRoundHoleAlert = UIAlertController(title: "Save Round", message: "You are about to save the round. This prevents any more changes. Are you sure you want to save?", preferredStyle: .alert)
         
         saveRoundHoleAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
-            self.performRoundSave()
+            do {
+                try self.coreRound?.managedObjectContext?.save()
+            } catch {
+                print("Round was not saved")
+            }
             self.navigationController?.popViewController(animated: true)
         }))
         saveRoundHoleAlert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
@@ -455,13 +444,12 @@ class holeViewController: UIViewController {
         editRoundValues(strokes: strokes!, putts: putts!, gir: gir, fairway: fairway, scoreToPar: scoreToPar)
     }
     
-    func performRoundSave()
+    func createRound()
     {
-        let round = Round(courseName: (course?.name)!, date: Date(), scoreToPar: 0, totalFairways: 0, totalGIRs: 0, totalPutts: 0, totalScore: 0)
+        coreRound = Round(courseName: (course?.name)!, date: Date(), scoreToPar: 0, totalFairways: 0, totalGIRs: 0, totalPutts: 0, totalScore: 0)
         
         do {
-            try round.managedObjectContext?.save()
-            coreRound = round
+            try coreRound?.managedObjectContext?.save()
             
         } catch {
             print("Could not save round.")
