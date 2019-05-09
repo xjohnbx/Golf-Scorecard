@@ -267,7 +267,6 @@ class holeViewController: UIViewController {
         badUserScoreFlag = false
         
         holeNumber.text = "\(holeCounter)"
-        coreRound?.holes
 
     //non changing fields
         holePar.text = "\(course!.holes[index].par)"
