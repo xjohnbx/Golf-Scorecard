@@ -21,7 +21,6 @@ class RoundDetailViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var holeTableView: UITableView!
     
     var round: Round?
-    var hole = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,16 +40,24 @@ class RoundDetailViewController: UIViewController, UITableViewDelegate, UITableV
         holeTableView.dataSource = self
     }
     
+    func fetchHoles() {
+        
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 18
+        return round!.holes!.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = holeTableView.dequeueReusableCell(withIdentifier: "HOLECELL") as! priorRoundHoleViewCell
-        cell.holeLabel.text = "\(hole)"
         
+        cell.holeLabel.text = "\(String(describing: round!.holeArray![indexPath.row].holeNumber))"
+        cell.scoreLabel.text = "\(String(describing: round!.holeArray![indexPath.row].strokes))"
+        cell.puttsLabel.text = "\(String(describing: round!.holeArray![indexPath.row].putts))"
         
-        hole += 1
+        cell.fairwayImage.image = round!.holeArray![indexPath.row].fairwayHit ? UIImage(named: "Green_Tick") : UIImage(named: "Red_X")
+        cell.GIRImage.image = round!.holeArray![indexPath.row].girHit ? UIImage(named: "Green_Tick") : UIImage(named: "Red_X")
+        
         print(cell)
         return cell
     }

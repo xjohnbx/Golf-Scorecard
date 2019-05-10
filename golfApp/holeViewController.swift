@@ -12,7 +12,7 @@ import Unbox
 
 class holeViewController: UIViewController {
 
-    var coreRound:Round?
+   
     
 //course hole and flags
     var courseChoiceHole = 1
@@ -42,6 +42,9 @@ class holeViewController: UIViewController {
     var holeScore = [Int](repeating: 0, count: 18)
 
     var course: Course?
+    var coreRound:Round?
+    var fetchedHoles:[Hole]?
+    var currentHole:Hole?
     
 //Outlets for on screen info
     @IBOutlet weak var holeScoreTextField: UITextField!
@@ -131,6 +134,9 @@ class holeViewController: UIViewController {
     @IBAction func prevHoleButton(_ sender: Any) {
         
         holeNumberCounter -= 1
+        fetchHole(hole: holeNumberCounter)
+        print(currentHole?.strokes)
+        
         setupHole(holeCounter: holeNumberCounter, toPar: 1)
         let index = holeNumberCounter - 1
         fairwayHit = holeF[index]
@@ -429,6 +435,7 @@ class holeViewController: UIViewController {
         let holeNumber = holeNumberCounter
         let putts = Int(holePuttsTextField.text!)
         let strokes = Int(holeScoreTextField.text!)
+        print(holeScoreTextField.text!)
         let gir = GIRHit
         let fairway = fairwayHit
         let scoreToPar = strokes! - course!.holes[holeNumberCounter - 1].par
@@ -441,6 +448,9 @@ class holeViewController: UIViewController {
             print("Hole was not saved")
         }
         editRoundValues(strokes: strokes!, putts: putts!, gir: gir, fairway: fairway, scoreToPar: scoreToPar)
+        print("performHoleSave: ")
+        print(strokes)
+        print(hole.strokes)
     }
     
     func createRound()
@@ -465,6 +475,27 @@ class holeViewController: UIViewController {
         if fairway {
             coreRound?.totalFairways += 1
         }
+    }
+    
+    func fetchHole(hole: Int) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest: NSFetchRequest<Hole> = Hole.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "holeNumber == %i", Int16(hole))
+        fetchRequest.fetchLimit = 1
+        
+        do {
+            fetchedHoles = try managedContext.fetch(fetchRequest)
+        } catch {
+            print("Hole not fetched.")
+        }
+        currentHole = fetchedHoles?[0]
+        print(fetchedHoles?[0].putts)
+        print(currentHole?.strokes)
+        print(fetchedHoles?[0].strokes)
     }
     
         //This prepares for round summary
