@@ -12,8 +12,6 @@ import Unbox
 
 class holeViewController: UIViewController {
 
-   
-    
 //course hole and flags
     var courseChoiceHole = 1
     var badUserScoreFlag = false
@@ -25,21 +23,6 @@ class holeViewController: UIViewController {
     var GIRHit = false
     var holeNumberCounter = 1
     var actualHole = 1
-
-//played?
-    var holePl = [Bool](repeating: false, count: 18)
-
-//fairways
-    var holeF = [Bool](repeating: false, count: 18)
-
-//GIRs
-    var holeG = [Bool](repeating: false, count: 18)
-
-//Putts
-    var holePutts = [Int](repeating: 0, count: 18)
-
-//Score
-    var holeScore = [Int](repeating: 0, count: 18)
 
     var course: Course?
     var coreRound:Round?
@@ -135,11 +118,10 @@ class holeViewController: UIViewController {
         holeNumberCounter -= 1
         
         setupHole(holeCounter: holeNumberCounter, toPar: 1)
-        let index = holeNumberCounter - 1
-        fairwayHit = holeF[index]
-        GIRHit = holeG[index]
         
-//        updateUserStats(courseHole: holeNumberCounter)
+        let index = holeNumberCounter - 1
+        fairwayHit = coreRound!.holeArray![index].fairwayHit
+        GIRHit = coreRound!.holeArray![index].girHit
     }
    
         //Error checking
@@ -211,30 +193,6 @@ class holeViewController: UIViewController {
         }
         return false
     }
-
-/*
-//Update User Stats
-    func updateUserStats(courseHole: Int)
-    {
-        let index = holeNumberCounter - 1
-        
-        holeScore[index] = (holeScoreTextField.text! as NSString).integerValue
-        holePutts[index] = (holePuttsTextField.text! as NSString).integerValue
-        if fairwayHit {
-            holeF[index] = true
-        }
-        else {
-            holeF[index] = false
-        }
-        if GIRHit {
-            holeG[index] = true
-        }
-        else {
-            holeG[index] = false
-        }
-    }
- 
- */
     
 //SetUp next Hole: increment hole number and setUp Next hole#, par, and yards
     
@@ -388,11 +346,7 @@ class holeViewController: UIViewController {
         }
 
     }
-/*
-    let storyBoard: UIStoryboard = UIStoryboard(name: "Balance", bundle: nil)
-    let balanceViewController = storyBoard.instantiateViewController(withIdentifier: "balance") as! BalanceViewController
-    self.present(balanceViewController, animated: true, completion: nil)
-    */
+
     @IBAction func cancelRound(_ sender: Any) {
         
         let cancelRoundAlert = UIAlertController(title: "Cancel Round", message: "You are about to cancel the round. You will lose this rounds data. Are you sure you want to cancel?", preferredStyle: .alert)
@@ -411,6 +365,7 @@ class holeViewController: UIViewController {
         let saveRoundHoleAlert = UIAlertController(title: "Save Round", message: "You are about to save the round. This prevents any more changes. Are you sure you want to save?", preferredStyle: .alert)
         
         saveRoundHoleAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+            self.performHoleSave()
             do {
                 try self.coreRound?.managedObjectContext?.save()
             } catch {
@@ -430,22 +385,35 @@ class holeViewController: UIViewController {
     
     func performHoleSave() {
         
-        let holeNumber = holeNumberCounter
         let putts = Int(holePuttsTextField.text!)
         let strokes = Int(holeScoreTextField.text!)
-        print(holeScoreTextField.text!)
         let gir = GIRHit
         let fairway = fairwayHit
         let scoreToPar = strokes! - course!.holes[holeNumberCounter - 1].par
         
-        let hole = Hole(holeNumber: Int16(holeNumber), putts: Int16(putts!), strokes: Int16(strokes!), fairwayHit: fairway, girHit: gir)
-        coreRound?.addToHoles(hole)
+        coreRound!.holeArray!.count < holeNumberCounter ? createNewHole(holeNumber: holeNumberCounter, putts: putts!, strokes: strokes!, fairway: fairway, gir: gir, scoreToPar: scoreToPar) : editRoundValues(strokes: strokes!, putts: putts!, gir: gir, fairway: fairway, scoreToPar: scoreToPar)
+    }
+    
+    func createNewHole(holeNumber: Int, putts: Int, strokes: Int, fairway: Bool, gir: Bool, scoreToPar: Int) {
+        let hole = Hole(holeNumber: Int16(holeNumber), putts: Int16(putts), strokes: Int16(strokes), fairwayHit: fairway, girHit: gir)
+        coreRound!.addToHoles(hole)
+        
         do {
             try hole.managedObjectContext?.save()
         } catch {
             print("Hole was not saved")
         }
-        editRoundValues(strokes: strokes!, putts: putts!, gir: gir, fairway: fairway, scoreToPar: scoreToPar)
+        
+        coreRound!.totalScore += Int16(strokes)
+        coreRound!.totalPutts += Int16(putts)
+        coreRound!.scoreToPar += Int16(scoreToPar)
+        
+        if gir {
+            coreRound?.totalGIRs += 1
+        }
+        if fairway {
+            coreRound?.totalFairways += 1
+        }
     }
     
     func createRound()
@@ -461,14 +429,32 @@ class holeViewController: UIViewController {
     }
     
     func editRoundValues(strokes: Int, putts: Int, gir: Bool, fairway: Bool, scoreToPar: Int) {
-        coreRound?.totalScore += Int16(strokes)
-        coreRound?.totalPutts += Int16(putts)
-        coreRound?.scoreToPar += Int16(scoreToPar)
+        
+        let index = holeNumberCounter - 1
+        let oldScoreToPar = coreRound!.holeArray![index].strokes - Int16(course!.holes[index].par)
+        
+        if coreRound!.holeArray![index].girHit {
+            coreRound!.totalGIRs -= 1
+        }
+        if coreRound!.holeArray![index].fairwayHit {
+            coreRound!.totalFairways -= 1
+        }
+        
+        
+        coreRound!.totalScore = coreRound!.totalScore - coreRound!.holeArray![index].strokes + Int16(strokes)
+        coreRound!.totalPutts = coreRound!.totalPutts - coreRound!.holeArray![index].putts + Int16(putts)
+        coreRound!.scoreToPar = coreRound!.scoreToPar - oldScoreToPar + Int16(scoreToPar)
+        
+        coreRound!.holeArray![index].strokes = Int16(strokes)
+        coreRound!.holeArray![index].putts = Int16(putts)
+        coreRound!.holeArray![index].fairwayHit = fairway
+        coreRound!.holeArray![index].girHit  = gir
+        
         if gir {
-            coreRound?.totalGIRs += 1
+            coreRound!.totalGIRs += 1
         }
         if fairway {
-            coreRound?.totalFairways += 1
+            coreRound!.totalFairways += 1
         }
     }
     
