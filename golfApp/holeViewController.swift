@@ -388,18 +388,23 @@ class holeViewController: UIViewController {
         }
 
     }
-
+/*
+    let storyBoard: UIStoryboard = UIStoryboard(name: "Balance", bundle: nil)
+    let balanceViewController = storyBoard.instantiateViewController(withIdentifier: "balance") as! BalanceViewController
+    self.present(balanceViewController, animated: true, completion: nil)
+    */
     @IBAction func cancelRound(_ sender: Any) {
         
         let cancelRoundAlert = UIAlertController(title: "Cancel Round", message: "You are about to cancel the round. You will lose this rounds data. Are you sure you want to cancel?", preferredStyle: .alert)
         
         cancelRoundAlert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { action in
-            self.navigationController?.popViewController(animated: true)
+            self.deleteRound()
+            self.backToHomeViewController()
         }))
+        
         cancelRoundAlert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
         self.present(cancelRoundAlert, animated: true)
     }
-    
     
     @IBAction func saveRound(_ sender: Any) {
     
@@ -411,10 +416,16 @@ class holeViewController: UIViewController {
             } catch {
                 print("Round was not saved")
             }
-            self.navigationController?.popViewController(animated: true)
+            self.backToHomeViewController()
         }))
         saveRoundHoleAlert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
         self.present(saveRoundHoleAlert, animated: true)
+    }
+    
+    func backToHomeViewController() {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let homeViewController = storyBoard.instantiateViewController(withIdentifier: "home") as! HomeViewController
+        self.present(homeViewController, animated: true, completion: nil)
     }
     
     func performHoleSave() {
@@ -435,9 +446,6 @@ class holeViewController: UIViewController {
             print("Hole was not saved")
         }
         editRoundValues(strokes: strokes!, putts: putts!, gir: gir, fairway: fairway, scoreToPar: scoreToPar)
-        print("performHoleSave: ")
-        print(strokes)
-        print(hole.strokes)
     }
     
     func createRound()
@@ -464,18 +472,22 @@ class holeViewController: UIViewController {
         }
     }
     
-        //This prepares for round summary
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if(hole18flag == false)
-        {
-            if(holeNumberCounter == 18)
-            {
-//                updateUserStats(courseHole: holeNumberCounter)
-
-            }
+    func deleteRound() {
+        guard let managedContext = coreRound?.managedObjectContext else {
+            return
         }
         
+        managedContext.delete(coreRound!)
+        
+        do {
+            try managedContext.save()
+        } catch {
+            print("Round not deleted.")
+        }
+    }
+    
+        //This prepares for round summary
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "endRound") {
             let endVC = segue.destination as! endRoundViewController
             endVC.endRound = coreRound

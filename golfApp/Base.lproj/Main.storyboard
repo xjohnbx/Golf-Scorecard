@@ -380,7 +380,7 @@
         <!--Home View Controller-->
         <scene sceneID="CCP-MW-4q8">
             <objects>
-                <viewController id="GxG-YC-hSu" customClass="HomeViewController" customModule="golfApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="home" id="GxG-YC-hSu" customClass="HomeViewController" customModule="golfApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BNl-DL-qeh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
