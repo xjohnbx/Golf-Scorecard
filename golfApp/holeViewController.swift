@@ -44,7 +44,6 @@ class holeViewController: UIViewController {
     var course: Course?
     var coreRound:Round?
     var fetchedHoles:[Hole]?
-    var currentHole:Hole?
     
 //Outlets for on screen info
     @IBOutlet weak var holeScoreTextField: UITextField!
@@ -134,8 +133,6 @@ class holeViewController: UIViewController {
     @IBAction func prevHoleButton(_ sender: Any) {
         
         holeNumberCounter -= 1
-        fetchHole(hole: holeNumberCounter)
-        print(currentHole?.strokes)
         
         setupHole(holeCounter: holeNumberCounter, toPar: 1)
         let index = holeNumberCounter - 1
@@ -249,8 +246,7 @@ class holeViewController: UIViewController {
         let index = holeCounter - 1
         
     //Changing fields
-        userScoreToParLabel.text = Int16(toPar).toParText(scoreToPar: toPar)
-        
+        userScoreToParLabel.text = coreRound!.scoreToPar.toParText(scoreToPar: Int(coreRound!.scoreToPar))
         holeScoreTextField.text = ""
         holePuttsTextField.text = ""
     
@@ -277,21 +273,12 @@ class holeViewController: UIViewController {
     //non changing fields
         holePar.text = "\(course!.holes[index].par)"
         holeYards.text = "\(course!.holes[index].yards)"
-        if holePl[index] {
-            holeScoreTextField.text = "\(holeScore[index])"
-            holePuttsTextField.text = "\(holePutts[index])"
-        }
-        if holeF[index] {
-            changeFairwayYes()
-        }
-        else {
-            changeFairwayNo()
-        }
-        if holeG[index] {
-            changeGIRYes()
-        }
-        else {
-            changeGIRNo()
+        
+        if coreRound!.holes!.count >= holeCounter {
+            holeScoreTextField.text = "\(coreRound!.holeArray![index].strokes)"
+            holePuttsTextField.text = "\(coreRound!.holeArray![index].putts)"
+            coreRound!.holeArray![index].fairwayHit ? changeFairwayYes() : changeFairwayNo()
+            coreRound!.holeArray![index].girHit ? changeGIRYes() : changeGIRNo()
         }
     }
     
@@ -475,27 +462,6 @@ class holeViewController: UIViewController {
         if fairway {
             coreRound?.totalFairways += 1
         }
-    }
-    
-    func fetchHole(hole: Int) {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest: NSFetchRequest<Hole> = Hole.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "holeNumber == %i", Int16(hole))
-        fetchRequest.fetchLimit = 1
-        
-        do {
-            fetchedHoles = try managedContext.fetch(fetchRequest)
-        } catch {
-            print("Hole not fetched.")
-        }
-        currentHole = fetchedHoles?[0]
-        print(fetchedHoles?[0].putts)
-        print(currentHole?.strokes)
-        print(fetchedHoles?[0].strokes)
     }
     
         //This prepares for round summary
