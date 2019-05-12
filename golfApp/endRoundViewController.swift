@@ -27,11 +27,11 @@ class endRoundViewController: UIViewController {
         UIGraphicsEndImageContext()
         self.view.backgroundColor = UIColor(patternImage: image)
         
-        endScoreLabel.text = "\(String(describing: endRound?.totalScore))" + "(\(String(describing: endRound?.scoreToPar.toParText)))"
+        endScoreLabel.text = "\(String(describing: endRound!.totalScore))" + " (\(String(describing: endRound!.scoreToPar.toParText(scoreToPar: Int(endRound!.scoreToPar)))))"
 
-        endPuttLabel.text = "\(String(describing: endRound?.totalPutts))"
-        endGIRLabel.text = "\(String(describing: endRound?.totalGIRs))"
-        endFairwayLabel.text = "\(String(describing: endRound?.totalFairways))"
+        endPuttLabel.text = "\(String(describing: endRound!.totalPutts))"
+        endGIRLabel.text = "\(String(describing: endRound!.totalGIRs))"
+        endFairwayLabel.text = "\(String(describing: endRound!.totalFairways))"
         
     }
 }
