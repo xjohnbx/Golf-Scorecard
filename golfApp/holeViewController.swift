@@ -107,71 +107,26 @@ class holeViewController: UIViewController {
         //Error checking
     func errorCheck() -> Bool
     {
-        var toNextHole = true
+        var ok = true
         
-        
-        //soft Errors. High numbers that may be a typo.
-        if((holeScoreTextField.text! as NSString).integerValue > 9 && badUserScoreFlag == false) {
-            let scoreAlert = UIAlertController(title: "Score Alert!", message: "You have entered a score higher than 9. Is this correct?", preferredStyle: .alert)
-            
-            scoreAlert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
-            self.present(scoreAlert, animated: true)
-            
-            scoreAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
-                //self.updateUserStats(courseHole: self.holeNumberCounter)
-            }))
-            
-            badUserScoreFlag = true
-            toNextHole = false
-        }
-        
-        if((holePuttsTextField.text! as NSString).integerValue > 3 && badUserPuttsFlag == false) {
-            let puttsAlert = UIAlertController(title: "Putts Alert!", message: "You have entered more than 3 putts. Is this correct?", preferredStyle: .alert)
-            
-            puttsAlert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
-            puttsAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: {action in
-                //self.updateUserStats(courseHole: self.holeNumberCounter)
-            }))
-            self.present(puttsAlert, animated: true)
-            
-            badUserPuttsFlag = true
-            toNextHole = false
-        }
         if((holeScoreTextField.text! as NSString).integerValue <= (holePuttsTextField.text! as NSString).integerValue || holeScoreTextField.text!.isEmpty || holePuttsTextField.text!.isEmpty)
         {
             var alert = UIAlertController(title: "Error!", message: "Basic Error.", preferredStyle: .alert)
             if(holeScoreTextField.text!.isEmpty || holePuttsTextField.text!.isEmpty)
             {
                 alert = UIAlertController(title: "Error!", message: "Score and Putts must have a value.", preferredStyle: .alert)
+                ok = false
             }
             else
             {
                 alert = UIAlertController(title: "Error!", message: "Putts must be less than Score.", preferredStyle: .alert)
+                ok = false
             }
             alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
             
             self.present(alert, animated: true)
         }
-            
-        else{
-            if(toNextHole == true)
-            {
-                return true
-            }
-            else if(toNextHole == false)
-            {
-                if(badUserScoreFlag == true && (holePuttsTextField.text! as NSString).integerValue <= 3)
-                {
-                    return true
-                }
-            }
-            else if(badUserScoreFlag == true && badUserPuttsFlag == true)
-            {
-                return true
-            }
-            
-        }
-        return false
+        return ok
     }
     
 //SetUp next Hole: increment hole number and setUp Next hole#, par, and yards
@@ -343,18 +298,19 @@ class holeViewController: UIViewController {
     @IBAction func saveRound(_ sender: Any) {
     
         let saveRoundHoleAlert = UIAlertController(title: "Save Round", message: "You are about to save the round. This prevents any more changes. Are you sure you want to save?", preferredStyle: .alert)
-        
-        saveRoundHoleAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
-            self.performHoleSave()
-            do {
-                try self.coreRound?.managedObjectContext?.save()
-            } catch {
-                print("Round was not saved")
-            }
-            self.backToHomeViewController()
-        }))
-        saveRoundHoleAlert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
-        self.present(saveRoundHoleAlert, animated: true)
+        if errorCheck() {
+            saveRoundHoleAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+                self.performHoleSave()
+                do {
+                    try self.coreRound?.managedObjectContext?.save()
+                } catch {
+                    print("Round was not saved")
+                }
+                self.backToHomeViewController()
+            }))
+            saveRoundHoleAlert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+            self.present(saveRoundHoleAlert, animated: true)
+        }
     }
     
     func backToHomeViewController() {
