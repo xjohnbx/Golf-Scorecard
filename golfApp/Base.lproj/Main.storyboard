@@ -557,14 +557,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7IW-OD-bIW">
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7IW-OD-bIW">
                                 <rect key="frame" x="153" y="189" width="66" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cu5-YE-kJ6">
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cu5-YE-kJ6">
                                 <rect key="frame" x="153" y="231" width="66" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -669,6 +669,38 @@
                                 </state>
                                 <connections>
                                     <action selector="nextHoleButton:" destination="zmV-Vh-7jf" eventType="touchUpInside" id="pPr-vM-ems"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bbo-Pe-drC">
+                                <rect key="frame" x="235" y="185" width="36" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Plus_Sign"/>
+                                <connections>
+                                    <action selector="addScoreButton:" destination="zmV-Vh-7jf" eventType="touchUpInside" id="wBs-U2-UcG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8lr-G4-o20">
+                                <rect key="frame" x="235" y="225" width="36" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Plus_Sign"/>
+                                <connections>
+                                    <action selector="addPuttButton:" destination="zmV-Vh-7jf" eventType="touchUpInside" id="Hfv-bH-qen"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfQ-pN-wU0">
+                                <rect key="frame" x="279" y="185" width="36" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Minus_Sign"/>
+                                <connections>
+                                    <action selector="minusScoreButton:" destination="zmV-Vh-7jf" eventType="touchUpInside" id="eM3-p7-VP0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c30-aI-Hzb">
+                                <rect key="frame" x="279" y="225" width="36" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Minus_Sign"/>
+                                <connections>
+                                    <action selector="minusPuttButton:" destination="zmV-Vh-7jf" eventType="touchUpInside" id="6ml-BN-tVu"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -802,4 +834,8 @@
             <point key="canvasLocation" x="-895.20000000000005" y="824.43778110944538"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Minus_Sign" width="50" height="50"/>
+        <image name="Plus_Sign" width="50" height="50"/>
+    </resources>
 </document>

@@ -67,8 +67,6 @@ class holeViewController: UIViewController {
         holePar.text = "\(course!.holes[0].par)"
         holeYards.text = "\(course!.holes[0].yards)"
         userScoreToParLabel.text = "E"
-        holeScoreTextField.text = ""
-        holePuttsTextField.text = ""
         changeGIRNo()
         changeFairwayNo()
         
@@ -140,9 +138,9 @@ class holeViewController: UIViewController {
         
     //Changing fields
         userScoreToParLabel.text = coreRound!.scoreToPar.toParText(scoreToPar: Int(coreRound!.scoreToPar))
-        holeScoreTextField.text = ""
-        holePuttsTextField.text = ""
-    
+        holeScoreTextField.text = "0"
+        holePuttsTextField.text = "0"
+        
         fairwayHit = false
         GIRHit = false
         
@@ -317,6 +315,26 @@ class holeViewController: UIViewController {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let homeViewController = storyBoard.instantiateViewController(withIdentifier: "home") as! HomeViewController
         self.present(homeViewController, animated: true, completion: nil)
+    }
+    
+    @IBAction func addScoreButton(_ sender: Any) {
+        holeScoreTextField.text = "\(Int(holeScoreTextField.text!)! + 1)"
+    }
+    
+    @IBAction func minusScoreButton(_ sender: Any) {
+        if Int(holeScoreTextField.text!)! > 0 {
+            holeScoreTextField.text = "\(Int(holeScoreTextField.text!)! - 1)"
+        }
+    }
+    
+    @IBAction func addPuttButton(_ sender: Any) {
+        holePuttsTextField.text = "\(Int(holePuttsTextField.text!)! + 1)"
+    }
+    
+    @IBAction func minusPuttButton(_ sender: Any) {
+        if Int(holePuttsTextField.text!)! > 0 {
+            holePuttsTextField.text = "\(Int(holePuttsTextField.text!)! - 1)"
+        }
     }
     
     func performHoleSave() {
