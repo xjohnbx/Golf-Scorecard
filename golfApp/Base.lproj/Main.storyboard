@@ -89,13 +89,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="kFO-Jg-4Ee"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Prior Rounds" id="UoA-vT-2x5">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="75L-UJ-zOg"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="CcV-Xj-V63" id="gfc-ZD-YQg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sxK-gf-sn4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-895.20000000000005" y="824.43778110944538"/>
+            <point key="canvasLocation" x="44" y="824.43778110944538"/>
         </scene>
         <!--Detail View-->
         <scene sceneID="k70-Iz-OTh">
@@ -105,13 +108,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="courseName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhA-3Y-5hB">
-                                <rect key="frame" x="16" y="68" width="343" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3aG-qp-2JM">
                                 <rect key="frame" x="16" y="105" width="99" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -311,20 +307,21 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="6BW-4M-Edk"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="D1U-jh-62s"/>
                     <connections>
                         <outlet property="dFIRs" destination="Kfa-iA-xwR" id="VFy-W7-S6f"/>
                         <outlet property="dGIRs" destination="euc-3Z-ZaO" id="0jG-XG-ift"/>
                         <outlet property="dPutts" destination="8HC-Sc-PCG" id="CEc-2l-HMK"/>
                         <outlet property="dScoreToPar" destination="VWY-tg-gdu" id="guc-VV-Qva"/>
                         <outlet property="dStrokes" destination="pSd-Vq-p44" id="tpB-oZ-Kol"/>
-                        <outlet property="dcourseName" destination="dhA-3Y-5hB" id="7xX-IM-d3D"/>
                         <outlet property="ddate" destination="3aG-qp-2JM" id="en4-jQ-ijH"/>
                         <outlet property="holeTableView" destination="sJz-5b-D47" id="qkh-3j-zk5"/>
+                        <outlet property="navigationBar" destination="D1U-jh-62s" id="gyh-tZ-XWb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lMa-7K-zpA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-162.40000000000001" y="823.53823088455783"/>
+            <point key="canvasLocation" x="776.79999999999995" y="823.53823088455783"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XCI-ZI-Fgs">
@@ -414,6 +411,9 @@
                                         <state key="normal" title="Sycamore Golf Course">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="sycamoreChoice:" destination="GxG-YC-hSu" eventType="touchUpInside" id="q7N-rD-RP5"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dcS-r2-4vx">
                                         <rect key="frame" x="97" y="162" width="181" height="30"/>
@@ -421,6 +421,9 @@
                                         <state key="normal" title="Kiswaukee Country Club">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="kishChoice:" destination="GxG-YC-hSu" eventType="touchUpInside" id="CtU-N6-lJW"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WBH-b6-oF1">
                                         <rect key="frame" x="97" y="200" width="181" height="30"/>
@@ -428,6 +431,9 @@
                                         <state key="normal" title="Emerald Hill Golf Course">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="emeraldHillChoice:" destination="GxG-YC-hSu" eventType="touchUpInside" id="OET-Tg-K9P"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F8s-9f-aIx">
                                         <rect key="frame" x="0.0" y="625" width="375" height="42"/>
@@ -439,7 +445,7 @@
                                         </state>
                                         <connections>
                                             <action selector="priorRoundClicked:" destination="GxG-YC-hSu" eventType="touchUpInside" id="J2s-u9-TEG"/>
-                                            <segue destination="buF-ez-ttB" kind="show" identifier="priorRound" id="4Mp-fh-zid"/>
+                                            <segue destination="If5-Vm-sZV" kind="show" identifier="priorRound" id="4Mp-fh-zid"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -776,6 +782,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iAt-Q4-xWd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="565.60000000000002" y="53.523238380809602"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="CEO-Cr-WOC">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="If5-Vm-sZV" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2py-aM-o7p">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="buF-ez-ttB" kind="relationship" relationship="rootViewController" id="bjF-ea-BZQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bih-mH-Tm2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-895.20000000000005" y="824.43778110944538"/>
         </scene>
     </scenes>
 </document>

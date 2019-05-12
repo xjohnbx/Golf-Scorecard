@@ -13,7 +13,7 @@ import Unbox
 class holeViewController: UIViewController {
 
 //course hole and flags
-    var courseChoiceHole = 1
+    var courseChoiceHole = 0
     var badUserScoreFlag = false
     var badUserPuttsFlag = false
     var hole18flag = false
@@ -44,18 +44,11 @@ class holeViewController: UIViewController {
     @IBOutlet weak var viewSummary: UIButton!
     @IBOutlet weak var cancelRound: UIButton!
     @IBOutlet weak var saveRound: UIButton!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         readCourse()
-        print(courseChoiceHole)
-    
-  
-        
-        
-        
-        
         
             //adding formatting to holeView Buttons
         holeGIRYesButton.layer.cornerRadius = 5.0

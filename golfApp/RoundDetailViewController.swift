@@ -9,14 +9,13 @@ import UIKit
 
 class RoundDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var dcourseName: UILabel!
     @IBOutlet weak var ddate: UILabel!
     @IBOutlet weak var dStrokes: UILabel!
     @IBOutlet weak var dScoreToPar: UILabel!
     @IBOutlet weak var dPutts: UILabel!
     @IBOutlet weak var dGIRs: UILabel!
     @IBOutlet weak var dFIRs: UILabel!
-
+    @IBOutlet weak var navigationBar: UINavigationItem!
     
     @IBOutlet weak var holeTableView: UITableView!
     
@@ -25,7 +24,7 @@ class RoundDetailViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        dcourseName.text = round!.courseName
+        navigationBar.title = round!.courseName
         dStrokes.text = "\(round!.totalScore)"
         ddate.text = round?.newDate?.asString(style: .short)
         
