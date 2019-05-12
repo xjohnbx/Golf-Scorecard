@@ -22,7 +22,6 @@ class holeViewController: UIViewController {
     var fairwayHit = false
     var GIRHit = false
     var holeNumberCounter = 1
-    var actualHole = 1
 
     var course: Course?
     var coreRound:Round?
@@ -80,29 +79,17 @@ class holeViewController: UIViewController {
     
     }
 
-//This function will call the next hole after error checking
+        //This function will call the next hole after error checking
     @IBAction func nextHoleButton(_ sender: Any) {
         
-            //This code stops from going to next hole when on hole 18
-       
         nextButton(hole: holeNumberCounter)
         
         if(errorCheck())
         {
             performHoleSave()
-            //updateUserStats(courseHole: holeNumberCounter)
-        
-        
-            if(holeNumberCounter > actualHole)
-            {
-                actualHole = holeNumberCounter
-            }
-            //calcScoreToPar(whatHole: actualHole)
-        
             holeNumberCounter += 1
             setupHole(holeCounter: holeNumberCounter, toPar: 1)
         }
-        
     }
     
         //This takes you to the previous hole
@@ -377,14 +364,9 @@ class holeViewController: UIViewController {
     }
     
     func performHoleSave() {
-        
-        let putts = Int(holePuttsTextField.text!)
-        let strokes = Int(holeScoreTextField.text!)
-        let gir = GIRHit
-        let fairway = fairwayHit
-        let scoreToPar = strokes! - course!.holes[holeNumberCounter - 1].par
-        
-        coreRound!.holeArray!.count < holeNumberCounter ? createNewHole(holeNumber: holeNumberCounter, putts: putts!, strokes: strokes!, fairway: fairway, gir: gir, scoreToPar: scoreToPar) : editRoundValues(strokes: strokes!, putts: putts!, gir: gir, fairway: fairway, scoreToPar: scoreToPar)
+
+        let scoreToPar = Int(holeScoreTextField.text!)! - course!.holes[holeNumberCounter - 1].par
+        coreRound!.holeArray!.count < holeNumberCounter ? createNewHole(holeNumber: holeNumberCounter, putts: Int(holePuttsTextField.text!)!, strokes: Int(holeScoreTextField.text!)!, fairway: fairwayHit, gir: GIRHit, scoreToPar: scoreToPar) : editRoundValues(strokes: Int(holeScoreTextField.text!)!, putts: Int(holePuttsTextField.text!)!, gir: GIRHit, fairway: fairwayHit, scoreToPar: scoreToPar)
     }
     
     func createNewHole(holeNumber: Int, putts: Int, strokes: Int, fairway: Bool, gir: Bool, scoreToPar: Int) {

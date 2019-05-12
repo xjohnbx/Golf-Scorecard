@@ -4,8 +4,6 @@
 //
 //Name/Author: John Brechon
 
-
-
 import UIKit
 import CoreData
 
