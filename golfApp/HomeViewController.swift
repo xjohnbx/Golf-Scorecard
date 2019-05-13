@@ -21,59 +21,51 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //setting the background image
-        UIGraphicsBeginImageContext(self.view.frame.size)
-        UIImage(named: "homeScreen.jpg")?.draw(in: self.view.bounds)
-        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
-        self.view.backgroundColor = UIColor(patternImage: image)
-        
         
         playRoundButton.layer.cornerRadius = 53.0
         priorRoundsButton.layer.cornerRadius = 5.0
+        
+        priorRoundsButton.layer.borderColor = UIColor.black.cgColor
+        priorRoundsButton.layer.borderWidth = 0.5
+        
+        
         sycamoreGolfCourse.layer.cornerRadius = 5.0
         kishwaukeeCountryClub.layer.cornerRadius = 5.0
         emeraldHillGolfCourse.layer.cornerRadius = 5.0
+        
+        self.sycamoreGolfCourse.layer.borderColor = UIColor.black.cgColor
+        self.sycamoreGolfCourse.layer.borderWidth = 0.5
         
     }
 
     @IBAction func sycamoreChoice(_ sender: Any) {
         courseChoice = 1
         
-        self.sycamoreGolfCourse.backgroundColor = UIColor.green
-        self.sycamoreGolfCourse.setTitleColor(.black, for: .normal)
+        self.sycamoreGolfCourse.layer.borderColor = UIColor.black.cgColor
+        self.sycamoreGolfCourse.layer.borderWidth = 0.5
         
-        self.kishwaukeeCountryClub.backgroundColor = UIColor.clear
-        self.kishwaukeeCountryClub.setTitleColor(.black, for: .normal)
-        
-        self.emeraldHillGolfCourse.backgroundColor = UIColor.clear
-        self.emeraldHillGolfCourse.setTitleColor(.black, for: .normal)
+        self.kishwaukeeCountryClub.layer.borderColor = UIColor.clear.cgColor
+        self.emeraldHillGolfCourse.layer.borderColor = UIColor.clear.cgColor
     }
    
     @IBAction func kishChoice(_ sender: Any) {
         courseChoice = 2
         
-        self.kishwaukeeCountryClub.backgroundColor = UIColor.green
-        self.kishwaukeeCountryClub.setTitleColor(.black, for: .normal)
+        self.kishwaukeeCountryClub.layer.borderColor = UIColor.black.cgColor
+        self.kishwaukeeCountryClub.layer.borderWidth = 0.5
         
-        self.sycamoreGolfCourse.backgroundColor = UIColor.clear
-        self.sycamoreGolfCourse.setTitleColor(.black, for: .normal)
-        
-        self.emeraldHillGolfCourse.backgroundColor = UIColor.clear
-        self.emeraldHillGolfCourse.setTitleColor(.black, for: .normal)
+        self.sycamoreGolfCourse.layer.borderColor = UIColor.clear.cgColor
+        self.emeraldHillGolfCourse.layer.borderColor = UIColor.clear.cgColor
     }
     
     @IBAction func emeraldHillChoice(_ sender: Any) {
         courseChoice = 3
         
-        self.emeraldHillGolfCourse.backgroundColor = UIColor.green
-        self.emeraldHillGolfCourse.setTitleColor(.black, for: .normal)
+        self.emeraldHillGolfCourse.layer.borderColor = UIColor.black.cgColor
+        self.emeraldHillGolfCourse.layer.borderWidth = 0.5
         
-        self.sycamoreGolfCourse.backgroundColor = UIColor.clear
-        self.sycamoreGolfCourse.setTitleColor(.black, for: .normal)
-        
-        self.kishwaukeeCountryClub.backgroundColor = UIColor.clear
-        self.kishwaukeeCountryClub.setTitleColor(.black, for: .normal)
+        self.sycamoreGolfCourse.layer.borderColor = UIColor.clear.cgColor
+        self.kishwaukeeCountryClub.layer.borderColor = UIColor.clear.cgColor
     }
 
     

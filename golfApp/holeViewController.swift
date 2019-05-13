@@ -120,24 +120,25 @@ class holeViewController: UIViewController {
     func errorCheck() -> Bool
     {
         var ok = true
+        var alert = UIAlertController(title: "Error!", message: "Basic Error.", preferredStyle: .alert)
         
-        if((holeScoreTextField.text! as NSString).integerValue <= (holePuttsTextField.text! as NSString).integerValue || holeScoreTextField.text!.isEmpty || holePuttsTextField.text!.isEmpty)
-        {
-            var alert = UIAlertController(title: "Error!", message: "Basic Error.", preferredStyle: .alert)
-            if(holeScoreTextField.text!.isEmpty || holePuttsTextField.text!.isEmpty)
-            {
-                alert = UIAlertController(title: "Error!", message: "Score and Putts must have a value.", preferredStyle: .alert)
-                ok = false
-            }
-            else
-            {
+        if Int(holeScoreTextField.text!)! == 0 {
+            alert = UIAlertController(title: "Error!", message: "Score cannot be 0.", preferredStyle: .alert)
+            ok = false
+            
+            alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+            self.present(alert,animated: true)
+        }
+            
+        else if((holeScoreTextField.text! as NSString).integerValue <= (holePuttsTextField.text! as NSString).integerValue) {
                 alert = UIAlertController(title: "Error!", message: "Putts must be less than Score.", preferredStyle: .alert)
                 ok = false
-            }
+            
             alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
             
             self.present(alert, animated: true)
         }
+        
         return ok
     }
     

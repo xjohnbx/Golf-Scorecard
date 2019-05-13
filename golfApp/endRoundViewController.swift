@@ -22,12 +22,6 @@ class endRoundViewController: UIViewController {
 
         self.navigationController?.navigationBar.isHidden = false
         
-            //Adding the background image to ViewController
-        UIGraphicsBeginImageContext(self.view.frame.size)
-        UIImage(named: "homeScreen.jpg")?.draw(in: self.view.bounds)
-        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
-        self.view.backgroundColor = UIColor(patternImage: image)
         
         endScoreLabel.text = "\(String(describing: endRound!.totalScore))" + " (\(String(describing: endRound!.scoreToPar.toParText(scoreToPar: Int(endRound!.scoreToPar)))))"
 
