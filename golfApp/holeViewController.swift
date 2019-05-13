@@ -327,8 +327,9 @@ class holeViewController: UIViewController {
     
     func backToHomeViewController() {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let homeViewController = storyBoard.instantiateViewController(withIdentifier: "home") as! HomeViewController
-        self.present(homeViewController, animated: true, completion: nil)
+        let navigationController = storyBoard.instantiateViewController(withIdentifier: "homeNav") as! UINavigationController
+        
+        self.present(navigationController, animated: true, completion: nil)
     }
     
     @IBAction func addScoreButton(_ sender: Any) {

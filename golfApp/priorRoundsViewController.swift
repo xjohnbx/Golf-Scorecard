@@ -16,7 +16,9 @@ class priorRoundsViewController: UIViewController, UITableViewDelegate, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        print("priorRounds View Did Load")
+        self.navigationController?.navigationBar.isHidden = false
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -26,6 +28,8 @@ class priorRoundsViewController: UIViewController, UITableViewDelegate, UITableV
         
         
     }
+    
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1

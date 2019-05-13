@@ -37,11 +37,6 @@ class HomeViewController: UIViewController {
         
     }
 
-
-    @IBAction func priorRoundClicked(_ sender: Any) {
-        performSegue(withIdentifier: "priorRound", sender: nil)
-    }
-    
     @IBAction func sycamoreChoice(_ sender: Any) {
         courseChoice = 1
         
@@ -86,8 +81,7 @@ class HomeViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "StartRound")
         {
-            let DestViewController = segue.destination as! UINavigationController
-            let holeController = DestViewController.topViewController as! holeViewController
+            let holeController = segue.destination as! holeViewController
             holeController.courseChoiceHole = courseChoice
         }
     }
