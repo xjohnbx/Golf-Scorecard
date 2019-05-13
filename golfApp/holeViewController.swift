@@ -43,19 +43,40 @@ class holeViewController: UIViewController {
     @IBOutlet weak var viewSummary: UIButton!
     @IBOutlet weak var cancelRound: UIButton!
     @IBOutlet weak var saveRound: UIButton!
-
+    @IBOutlet weak var navigationBar: UINavigationItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         readCourse()
         
-            //adding formatting to holeView Buttons
+        setupUI()
+        
+        createRound()
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true
+    }
+
+    func setupUI() {
         holeGIRYesButton.layer.cornerRadius = 5.0
         holeGIRNoButton.layer.cornerRadius = 5.0
         holeFairwayYesButton.layer.cornerRadius = 5.0
         holeFairwayNoButton.layer.cornerRadius = 5.0
         previousButton.layer.cornerRadius = 2.0
         nextButton.layer.cornerRadius = 2.0
+        
+        
+        cancelRound.layer.borderColor = UIColor.black.cgColor
+        cancelRound.layer.borderWidth = 0.5
+        
+        viewSummary.layer.borderColor = UIColor.black.cgColor
+        viewSummary.layer.borderWidth = 0.5
+        
+        saveRound.layer.borderColor = UIColor.black.cgColor
+        saveRound.layer.borderWidth = 0.5
         
         previousButton.isHidden = true
         previousButton.isEnabled = false
@@ -69,14 +90,7 @@ class holeViewController: UIViewController {
         userScoreToParLabel.text = "E"
         changeGIRNo()
         changeFairwayNo()
-        
-        createRound()
-        
-        //calling extension function from HomeViewController
-        self.hideKeyboardWhenTappedAround()
-    
     }
-
         //This function will call the next hole after error checking
     @IBAction func nextHoleButton(_ sender: Any) {
         

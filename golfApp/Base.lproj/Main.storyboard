@@ -323,57 +323,6 @@
             </objects>
             <point key="canvasLocation" x="776.79999999999995" y="823.53823088455783"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="XCI-ZI-Fgs">
-            <objects>
-                <navigationController storyboardIdentifier="AboutAppNavigationController" id="l1Y-3B-x31" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iPU-na-ODJ">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="Fbd-tp-bA6" kind="relationship" relationship="rootViewController" id="n8B-ai-j9l"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DJe-SA-ho7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1642" y="-729"/>
-        </scene>
-        <!--About App-->
-        <scene sceneID="Bgx-dI-ebI">
-            <objects>
-                <viewController title="About App" id="Fbd-tp-bA6" customClass="AboutAppViewController" customModule="golfApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="2Vk-yq-cRy">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gN-gR-iLj">
-                                <rect key="frame" x="16" y="91" width="343" height="443"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">Author: John Brechon
- This iPhone app functions as a golf scorecard. This app is restricted for use on only the three courses listed (Sycamore, Kishwaukee, and Emerald Hill) as they are the only ones loaded into the system. This scorecard keeps track of putts, score, GIRs, fairways and allows you to view prior rounds.  The prior rounds are stored using Core Data which allows you to save and then reaches them.  
- Version 2.0 iOS 11 </string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="7K0-5n-VL8"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="About App" id="zdo-rO-46D">
-                        <barButtonItem key="leftBarButtonItem" title="Done" id="dL5-aK-MbV">
-                            <color key="tintColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <action selector="doneButton:" destination="Fbd-tp-bA6" id="0a2-nR-NLu"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SKC-cw-Aqd" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-895" y="-729"/>
-        </scene>
         <!--Home View Controller-->
         <scene sceneID="CCP-MW-4q8">
             <objects>
@@ -394,7 +343,7 @@
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="zmV-Vh-7jf" kind="show" identifier="StartRound" id="VrZ-MU-cyc"/>
+                                            <segue destination="pT6-db-WIA" kind="show" identifier="StartRound" id="VrZ-MU-cyc"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Choose Course:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="trd-Xs-m5C">
@@ -471,7 +420,7 @@
         <!--Hole-->
         <scene sceneID="MJg-Fs-7Np">
             <objects>
-                <viewController title="Hole" id="zmV-Vh-7jf" customClass="holeViewController" customModule="golfApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="holeViewController" title="Hole" id="zmV-Vh-7jf" customClass="holeViewController" customModule="golfApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OfV-jh-Yir">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -629,7 +578,6 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VLh-3m-oQF">
                                 <rect key="frame" x="188" y="627" width="187" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Save Round">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -640,7 +588,6 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wyw-Cq-lUm">
                                 <rect key="frame" x="0.0" y="627" width="187" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Cancel Round">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -651,7 +598,6 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KHg-rQ-H8v">
                                 <rect key="frame" x="0.0" y="584" width="375" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="View Summary">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -707,6 +653,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="3xu-Fa-ZRR"/>
                     </view>
+                    <navigationItem key="navigationItem" id="nOa-oq-sIm"/>
                     <connections>
                         <outlet property="cancelRound" destination="Wyw-Cq-lUm" id="fMM-01-Fd8"/>
                         <outlet property="holeFairwayNoButton" destination="xTc-Da-LWx" id="LWT-mn-xFd"/>
@@ -718,6 +665,7 @@
                         <outlet property="holePuttsTextField" destination="cu5-YE-kJ6" id="CAg-G5-maW"/>
                         <outlet property="holeScoreTextField" destination="7IW-OD-bIW" id="NYV-eT-OFj"/>
                         <outlet property="holeYards" destination="Sx4-Qf-W0I" id="oOa-zE-5ON"/>
+                        <outlet property="navigationBar" destination="nOa-oq-sIm" id="BiD-0I-hhc"/>
                         <outlet property="nextButton" destination="PMX-nC-74D" id="d7R-vo-knM"/>
                         <outlet property="previousButton" destination="aVi-CX-pLi" id="HdD-sm-Poc"/>
                         <outlet property="saveRound" destination="VLh-3m-oQF" id="bar-jJ-d7b"/>
@@ -727,7 +675,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p1h-2Y-Ece" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-162.40000000000001" y="53.523238380809602"/>
+            <point key="canvasLocation" x="776.79999999999995" y="53.523238380809602"/>
         </scene>
         <!--End Round View Controller-->
         <scene sceneID="bDK-EV-DFj">
@@ -813,7 +761,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iAt-Q4-xWd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="565.60000000000002" y="53.523238380809602"/>
+            <point key="canvasLocation" x="1504.8" y="53.523238380809602"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="CEO-Cr-WOC">
@@ -832,6 +780,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bih-mH-Tm2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-895.20000000000005" y="824.43778110944538"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Ctq-wv-Qc1">
+            <objects>
+                <navigationController storyboardIdentifier="holeNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="pT6-db-WIA" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8lc-5P-Kpo">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="zmV-Vh-7jf" kind="relationship" relationship="rootViewController" id="3ma-Gv-ivt"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y0k-fM-0I4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-162.40000000000001" y="53.523238380809602"/>
         </scene>
     </scenes>
     <resources>

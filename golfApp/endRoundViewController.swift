@@ -20,6 +20,8 @@ class endRoundViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.navigationController?.navigationBar.isHidden = false
+        
             //Adding the background image to ViewController
         UIGraphicsBeginImageContext(self.view.frame.size)
         UIImage(named: "homeScreen.jpg")?.draw(in: self.view.bounds)

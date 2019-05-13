@@ -80,32 +80,16 @@ class HomeViewController: UIViewController {
         self.kishwaukeeCountryClub.backgroundColor = UIColor.clear
         self.kishwaukeeCountryClub.setTitleColor(.black, for: .normal)
     }
-    
-    
-    
-    
-    // MARK: - Navigation
 
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "StartRound")
         {
-            let holeVC = segue.destination as! holeViewController
-            
-            holeVC.courseChoiceHole = courseChoice
+            let DestViewController = segue.destination as! UINavigationController
+            let holeController = DestViewController.topViewController as! holeViewController
+            holeController.courseChoiceHole = courseChoice
         }
-    }
-}
-
-extension UIViewController {
-    func hideKeyboardWhenTappedAround() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
-    }
-    
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
     }
 }
 
