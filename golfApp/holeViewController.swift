@@ -156,20 +156,13 @@ class holeViewController: UIViewController {
         holeScoreTextField.text = "0"
         holePuttsTextField.text = "0"
         
+
+        
         fairwayHit = false
+        changeFairwayNo()
+        
         GIRHit = false
-        
-        self.holeGIRYesButton.backgroundColor = UIColor.white
-        self.holeGIRYesButton.setTitleColor(.blue, for: .normal)
-        
-        self.holeGIRNoButton.backgroundColor = UIColor.white
-        self.holeGIRNoButton.setTitleColor(.blue, for: .normal)
-        
-        self.holeFairwayNoButton.backgroundColor = UIColor.white
-        self.holeFairwayNoButton.setTitleColor(.blue, for: .normal)
-        
-        self.holeFairwayYesButton.backgroundColor = UIColor.white
-        self.holeFairwayYesButton.setTitleColor(.blue, for: .normal)
+        changeGIRNo()
         
         badUserPuttsFlag = false
         badUserScoreFlag = false
