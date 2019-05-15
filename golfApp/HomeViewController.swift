@@ -21,51 +21,36 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        playRoundButton.layer.cornerRadius = 53.0
-        priorRoundsButton.layer.cornerRadius = 5.0
-        
-        priorRoundsButton.layer.borderColor = UIColor.black.cgColor
-        priorRoundsButton.layer.borderWidth = 0.5
-        
-        
-        sycamoreGolfCourse.layer.cornerRadius = 5.0
-        kishwaukeeCountryClub.layer.cornerRadius = 5.0
-        emeraldHillGolfCourse.layer.cornerRadius = 5.0
-        
-        self.sycamoreGolfCourse.layer.borderColor = UIColor.black.cgColor
-        self.sycamoreGolfCourse.layer.borderWidth = 0.5
-        
+        sycamoreGolfCourse.backgroundColor = UIColor.green
+        sycamoreGolfCourse.applyFormat()
+        kishwaukeeCountryClub.applyFormat()
+        emeraldHillGolfCourse.applyFormat()
+        priorRoundsButton.applyFormat()
+        playRoundButton.applyFormat()
     }
 
     @IBAction func sycamoreChoice(_ sender: Any) {
         courseChoice = 1
         
-        self.sycamoreGolfCourse.layer.borderColor = UIColor.black.cgColor
-        self.sycamoreGolfCourse.layer.borderWidth = 0.5
-        
-        self.kishwaukeeCountryClub.layer.borderColor = UIColor.clear.cgColor
-        self.emeraldHillGolfCourse.layer.borderColor = UIColor.clear.cgColor
+        sycamoreGolfCourse.backgroundColor = UIColor.green
+        emeraldHillGolfCourse.backgroundColor = UIColor.white
+        kishwaukeeCountryClub.backgroundColor = UIColor.white
     }
    
     @IBAction func kishChoice(_ sender: Any) {
         courseChoice = 2
         
-        self.kishwaukeeCountryClub.layer.borderColor = UIColor.black.cgColor
-        self.kishwaukeeCountryClub.layer.borderWidth = 0.5
-        
-        self.sycamoreGolfCourse.layer.borderColor = UIColor.clear.cgColor
-        self.emeraldHillGolfCourse.layer.borderColor = UIColor.clear.cgColor
+        kishwaukeeCountryClub.backgroundColor = UIColor.green
+        sycamoreGolfCourse.backgroundColor = UIColor.white
+        emeraldHillGolfCourse.backgroundColor = UIColor.white
     }
     
     @IBAction func emeraldHillChoice(_ sender: Any) {
         courseChoice = 3
         
-        self.emeraldHillGolfCourse.layer.borderColor = UIColor.black.cgColor
-        self.emeraldHillGolfCourse.layer.borderWidth = 0.5
-        
-        self.sycamoreGolfCourse.layer.borderColor = UIColor.clear.cgColor
-        self.kishwaukeeCountryClub.layer.borderColor = UIColor.clear.cgColor
+        emeraldHillGolfCourse.backgroundColor = UIColor.green
+        sycamoreGolfCourse.backgroundColor = UIColor.white
+        kishwaukeeCountryClub.backgroundColor = UIColor.white
     }
 
     
@@ -98,5 +83,16 @@ extension Date {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = style
         return dateFormatter.string(from: self)
+    }
+}
+
+extension UIButton {
+    func applyFormat() {
+        self.layer.cornerRadius = 5.0
+        self.layer.borderColor = UIColor.black.cgColor
+        self.layer.borderWidth = 0.5
+        self.layer.shadowColor = UIColor.darkGray.cgColor
+        self.layer.shadowRadius = 5
+        self.layer.shadowOpacity = 0.5
     }
 }
