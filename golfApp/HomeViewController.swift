@@ -17,6 +17,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var priorRoundsButton: UIButton!
     
     var courseChoice = 1
+    let playButtonImage = UIImage(named: "Golf_Ball")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,8 @@ class HomeViewController: UIViewController {
         emeraldHillGolfCourse.applyFormat()
         priorRoundsButton.applyFormat()
         playRoundButton.applyFormat()
+        playRoundButton.makeRound()
+        playRoundButton.setBackgroundImage(playButtonImage, for: .normal)
     }
 
     @IBAction func sycamoreChoice(_ sender: Any) {
@@ -94,5 +97,8 @@ extension UIButton {
         self.layer.shadowColor = UIColor.darkGray.cgColor
         self.layer.shadowRadius = 5
         self.layer.shadowOpacity = 0.5
+    }
+    func makeRound() {
+        self.layer.cornerRadius = self.frame.height / 2
     }
 }
