@@ -11,7 +11,6 @@ class RoundDetailViewController: UIViewController, UITableViewDelegate, UITableV
     
     @IBOutlet weak var ddate: UILabel!
     @IBOutlet weak var dStrokes: UILabel!
-    @IBOutlet weak var dScoreToPar: UILabel!
     @IBOutlet weak var dPutts: UILabel!
     @IBOutlet weak var dGIRs: UILabel!
     @IBOutlet weak var dFIRs: UILabel!
@@ -30,17 +29,12 @@ class RoundDetailViewController: UIViewController, UITableViewDelegate, UITableV
         
         let par = round!.scoreToPar.toParText(scoreToPar: Int(round!.scoreToPar))
  
-        dScoreToPar.text = par
         dPutts.text = "\(round!.totalPutts)"
         dGIRs.text = "\(round!.totalGIRs)"
         dFIRs.text = "\(round!.totalFairways)"
-        dStrokes.text = "\(round!.totalScore)"
+        dStrokes.text = "\(round!.totalScore) (\(par))"
         holeTableView.delegate = self
         holeTableView.dataSource = self
-    }
-    
-    func fetchHoles() {
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -57,7 +51,7 @@ class RoundDetailViewController: UIViewController, UITableViewDelegate, UITableV
         cell.fairwayImage.image = round!.holeArray![indexPath.row].fairwayHit ? UIImage(named: "Green_Tick") : UIImage(named: "Red_X")
         cell.GIRImage.image = round!.holeArray![indexPath.row].girHit ? UIImage(named: "Green_Tick") : UIImage(named: "Red_X")
         
-        print(cell)
+
         return cell
     }
     
