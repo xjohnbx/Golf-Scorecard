@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "red_x-1.png",
+      "filename" : "GreenCheck.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "red_x-2.png",
+      "filename" : "GreenCheck-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "red_x.png",
+      "filename" : "GreenCheck-2.png",
       "scale" : "3x"
     }
   ],

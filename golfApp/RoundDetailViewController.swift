@@ -48,8 +48,8 @@ class RoundDetailViewController: UIViewController, UITableViewDelegate, UITableV
         cell.scoreLabel.text = "\(String(describing: round!.holeArray![indexPath.row].strokes))"
         cell.puttsLabel.text = "\(String(describing: round!.holeArray![indexPath.row].putts))"
         
-        cell.fairwayImage.image = round!.holeArray![indexPath.row].fairwayHit ? UIImage(named: "Green_Tick") : UIImage(named: "Red_X")
-        cell.GIRImage.image = round!.holeArray![indexPath.row].girHit ? UIImage(named: "Green_Tick") : UIImage(named: "Red_X")
+        cell.fairwayImage.image = round!.holeArray![indexPath.row].fairwayHit ? UIImage(named: "GreenCheck") : UIImage(named: "red_X")
+        cell.GIRImage.image = round!.holeArray![indexPath.row].girHit ? UIImage(named: "GreenCheck") : UIImage(named: "red_X")
         
 
         return cell

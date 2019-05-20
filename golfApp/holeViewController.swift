@@ -79,6 +79,7 @@ class holeViewController: UIViewController {
         scoreMinus.applyFormat()
         puttsPlus.applyFormat()
         puttsMinus.applyFormat()
+ 
    
         
         previousButton.isHidden = true
