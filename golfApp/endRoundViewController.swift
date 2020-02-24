@@ -8,8 +8,7 @@
 import UIKit
 
 class endRoundViewController: UIViewController {
-
-    
+	
     var endRound:Round?
     
     @IBOutlet weak var endScoreLabel: UILabel!
@@ -22,12 +21,11 @@ class endRoundViewController: UIViewController {
 
         self.navigationController?.navigationBar.isHidden = false
         
-        
         endScoreLabel.text = "\(String(describing: endRound!.totalScore))" + " (\(String(describing: endRound!.scoreToPar.toParText(scoreToPar: Int(endRound!.scoreToPar)))))"
 
         endPuttLabel.text = "\(String(describing: endRound!.totalPutts))"
         endGIRLabel.text = "\(String(describing: endRound!.totalGIRs))"
         endFairwayLabel.text = "\(String(describing: endRound!.totalFairways))"
-        
+		
     }
 }

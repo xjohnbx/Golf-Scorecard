@@ -10,7 +10,6 @@
 import Foundation
 import CoreData
 
-
 extension Round {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Round> {
@@ -60,5 +59,5 @@ extension Round {
 
     @objc(removeHoles:)
     @NSManaged public func removeFromHoles(_ values: NSOrderedSet)
-
+	
 }

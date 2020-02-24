@@ -40,5 +40,4 @@ public class Round: NSManagedObject {
         self.totalPutts = totalPutts
         self.totalScore = totalScore
     }
-    
 }
