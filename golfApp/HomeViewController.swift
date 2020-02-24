@@ -12,7 +12,6 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var sycamoreGolfCourse: UIButton!
     @IBOutlet weak var kishwaukeeCountryClub: UIButton!
     @IBOutlet weak var emeraldHillGolfCourse: UIButton!
-    
     @IBOutlet weak var playRoundButton: UIButton!
     @IBOutlet weak var priorRoundsButton: UIButton!
     

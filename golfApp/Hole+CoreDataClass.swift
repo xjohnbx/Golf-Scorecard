@@ -19,8 +19,6 @@ public class Hole: NSManagedObject {
         
         let context = appDelegate?.persistentContainer.viewContext
         
-
-        
         self.init(entity: Hole.entity(), insertInto: context)
         
         self.holeNumber = holeNumber

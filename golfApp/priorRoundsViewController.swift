@@ -29,8 +29,6 @@ class priorRoundsViewController: UIViewController, UITableViewDelegate, UITableV
         
     }
     
-    
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -46,7 +44,6 @@ class priorRoundsViewController: UIViewController, UITableViewDelegate, UITableV
         
         let toPar = round.scoreToPar.toParText(scoreToPar: Int(round.scoreToPar))
        
-        
         cell.cellCourseName.text = round.courseName
         cell.cellDate.text = round.newDate?.asString(style: .medium)
         cell.cellToPar.text = toPar
@@ -68,10 +65,9 @@ class priorRoundsViewController: UIViewController, UITableViewDelegate, UITableV
             do {
                 roundArray = try context.fetch(Round.fetchRequest())
             }
-            catch{
+            catch {
                 print(error)
             }
-            
         }
         
         tableView.reloadData()
@@ -87,10 +83,7 @@ class priorRoundsViewController: UIViewController, UITableViewDelegate, UITableV
         catch {
             print(error)
         }
-        
-        
     }
-    
     
     // MARK: - Navigation
 

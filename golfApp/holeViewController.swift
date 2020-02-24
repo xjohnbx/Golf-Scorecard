@@ -47,17 +47,13 @@ class holeViewController: UIViewController {
     @IBOutlet weak var puttsPlus: UIButton!
     @IBOutlet weak var scoreMinus: UIButton!
     @IBOutlet weak var puttsMinus: UIButton!
-    
-    
     @IBOutlet weak var navigationBar: UINavigationItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         readCourse()
-        
         setupUI()
-        
         createRound()
         self.navigationController?.navigationBar.isHidden = true
     }
@@ -80,11 +76,8 @@ class holeViewController: UIViewController {
         puttsPlus.applyFormat()
         puttsMinus.applyFormat()
  
-   
-        
         previousButton.isHidden = true
         previousButton.isEnabled = false
-        
         
             //initialize hole1 values
         navigationItem.title = course?.name
@@ -159,8 +152,6 @@ class holeViewController: UIViewController {
         userScoreToParLabel.text = coreRound!.scoreToPar.toParText(scoreToPar: Int(coreRound!.scoreToPar))
         holeScoreTextField.text = "0"
         holePuttsTextField.text = "0"
-        
-
         
         fairwayHit = false
         changeFairwayNo()
@@ -260,8 +251,7 @@ class holeViewController: UIViewController {
         }
     }
         //can use some kind of parameter to choose between courses in the list then use if statements for what plist gets read.
-    func readCourse()
-    {
+	func readCourse() {
         
         var path = Bundle.main.url(forResource: "kish", withExtension: "json")!
         switch courseChoiceHole {
@@ -289,7 +279,6 @@ class holeViewController: UIViewController {
         catch {
             print(error)
         }
-
     }
 
     @IBAction func cancelRound(_ sender: Any) {
@@ -401,7 +390,6 @@ class holeViewController: UIViewController {
         if coreRound!.holeArray![index].fairwayHit {
             coreRound!.totalFairways -= 1
         }
-        
         
         coreRound!.totalScore = coreRound!.totalScore - coreRound!.holeArray![index].strokes + Int16(strokes)
         coreRound!.totalPutts = coreRound!.totalPutts - coreRound!.holeArray![index].putts + Int16(putts)
