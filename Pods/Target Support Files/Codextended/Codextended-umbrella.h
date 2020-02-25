@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double UnboxVersionNumber;
-FOUNDATION_EXPORT const unsigned char UnboxVersionString[];
+FOUNDATION_EXPORT double CodextendedVersionNumber;
+FOUNDATION_EXPORT const unsigned char CodextendedVersionString[];
 
