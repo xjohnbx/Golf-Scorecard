@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreData
-import Unbox
 
 class holeViewController: UIViewController {
 
@@ -79,6 +78,10 @@ class holeViewController: UIViewController {
         previousButton.isHidden = true
         previousButton.isEnabled = false
         
+		guard course != nil else {
+			print("Course has failed to read")
+			return
+		}
             //initialize hole1 values
         navigationItem.title = course?.name
         holeNumber.text = "\(holeNumberCounter)"
@@ -264,23 +267,25 @@ class holeViewController: UIViewController {
             default:
                 break
          }
-        
-        var data: Data?
-        do {
-            data = try Data(contentsOf: path)
-        }
-        catch {
-            print(error)
-        }
-        
-        do {
-            course = try unbox(data: data!)
-        }
-        catch {
-            print(error)
-        }
+		
+		do {
+			let data = try Data(contentsOf: path)
+			parse(json: data)
+		} catch {
+			print(error)
+		}
     }
-
+	
+	func parse(json: Data) {
+		let decoder = JSONDecoder()
+		
+		do {
+			course = try decoder.decode(Course.self, from: json)
+		} catch {
+			print(error)
+		}
+	}
+	
     @IBAction func cancelRound(_ sender: Any) {
         
         let cancelRoundAlert = UIAlertController(title: "Cancel Round", message: "You are about to cancel the round. You will lose this rounds data. Are you sure you want to cancel?", preferredStyle: .alert)

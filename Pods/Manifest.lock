@@ -1,16 +1,16 @@
 PODS:
-  - Unbox (3.0.0)
+  - Codextended (0.3.0)
 
 DEPENDENCIES:
-  - Unbox
+  - Codextended
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
-    - Unbox
+  trunk:
+    - Codextended
 
 SPEC CHECKSUMS:
-  Unbox: 9ed33b2a31f7a8a049f54b94d40c4a52a28c4d9d
+  Codextended: f384271b8694376ad766ddbf2a011efbfdcee905
 
-PODFILE CHECKSUM: 70943964f5cfebd53476a4acca07c7e36db273b4
+PODFILE CHECKSUM: 3f6006d15266a2d98dbc5bf48c49156e49f81e40
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.8.4

@@ -7,38 +7,32 @@
 //
 
 import Foundation
-import Unbox
+import Codextended
 
-struct Course {
-    
+struct Course: Codable {
     var name: String
     var slope: Int
     var rating: Double
     var totalPar: Int
     var holes: [CourseHole]
+	
+	init(from decoder: Decoder) throws {
+		name = try decoder.decode("name")
+		slope = try decoder.decode("slope")
+		rating = try decoder.decode("rating")
+		totalPar = try decoder.decode("totalPar")
+		holes = try decoder.decode("holes")
+	}
 }
 
-extension Course: Unboxable {
-    init(unboxer: Unboxer) throws {
-        self.name = try unboxer.unbox(key: "name")
-        self.slope = try unboxer.unbox(key: "slope")
-        self.rating = try unboxer.unbox(key: "rating")
-        self.totalPar = try unboxer.unbox(key: "totalPar")
-        self.holes = try unboxer.unbox(key: "holes")
-    }
-}
-
-struct CourseHole {
-    
+struct CourseHole: Codable {
     var number: String
     var yards: Int
     var par: Int
-}
-
-extension CourseHole: Unboxable {
-    init(unboxer: Unboxer) throws {
-        self.number = try unboxer.unbox(key: "number")
-        self.yards = try unboxer.unbox(key: "yards")
-        self.par = try unboxer.unbox(key: "par")
-    }
+	
+	init(from decoder: Decoder) throws {
+		number = try decoder.decode("number")
+		yards = try decoder.decode("yards")
+		par = try decoder.decode("par")
+	}
 }
