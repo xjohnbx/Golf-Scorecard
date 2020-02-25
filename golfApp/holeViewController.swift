@@ -97,7 +97,7 @@ class holeViewController: UIViewController {
         {
             performHoleSave()
             holeNumberCounter += 1
-            setupHole(holeCounter: holeNumberCounter, toPar: 1)
+            setupHole(holeCounter: holeNumberCounter)
         }
     }
     
@@ -106,7 +106,7 @@ class holeViewController: UIViewController {
         
         holeNumberCounter -= 1
         
-        setupHole(holeCounter: holeNumberCounter, toPar: 1)
+        setupHole(holeCounter: holeNumberCounter)
         
         let index = holeNumberCounter - 1
         fairwayHit = coreRound!.holeArray![index].fairwayHit
@@ -141,7 +141,7 @@ class holeViewController: UIViewController {
     
 //SetUp next Hole: increment hole number and setUp Next hole#, par, and yards
     
-    func setupHole(holeCounter: Int, toPar: Int)
+    func setupHole(holeCounter: Int)
     {
         
         prevButton(hole: holeCounter)
