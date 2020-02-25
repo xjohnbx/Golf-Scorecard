@@ -13,10 +13,7 @@ class holeViewController: UIViewController {
 
 //course hole and flags
     var courseChoiceHole = 0
-    var badUserScoreFlag = false
-    var badUserPuttsFlag = false
-    var hole18flag = false
-    
+
 //User Values
     var fairwayHit = false
     var GIRHit = false
@@ -161,10 +158,7 @@ class holeViewController: UIViewController {
         
         GIRHit = false
         changeGIRNo()
-        
-        badUserPuttsFlag = false
-        badUserScoreFlag = false
-        
+
         holeNumber.text = "\(holeCounter)"
 
     //non changing fields
